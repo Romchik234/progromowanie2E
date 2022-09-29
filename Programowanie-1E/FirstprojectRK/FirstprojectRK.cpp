@@ -6,14 +6,14 @@
 int main()
 {
     std::cout << "Hello World!\n";
- 
+
     std::cout << "Hello World!\n";
 
     std::cout << -56;
     std::cout << "\n";
     std::cout << "234\n";
 
-    std::cout << 125.5 << "\t" << "text podany" <<"\t" << -23.4 << "\n";
+    std::cout << 125.5 << "\t" << "text podany" << "\t" << -23.4 << "\n";
 
 
 
@@ -21,10 +21,14 @@ int main()
 
 
 
+    std::cout << "\n";
 
 
-
-
+    std::cout << "Podaj liczbe:";
+    int numberFromUsers;
+    std::cin >> numberFromUsers;
+    std::cout << "\n";
+    std::cout << "Podana liczba:" << numberFromUsers << "\n";
 }
 
 //hithub.com/IronlittleFox
