@@ -32,7 +32,8 @@ void task1()
 	std::cout << "reszta_z_dzielenia:" << rest << "\n";
 }
 
-//Przetestowaæ ró¿ne warianry dzielenia
+/*Przetestowaæ ró¿ne warianry dzielenia
+*/ 
 void task2 ()
 {
 
@@ -75,12 +76,14 @@ void task4()
 
 	std::cout << "przekatna kwadratu jest:" << diagonal << "\n" ;
 
+}
+
+void task5()
+{
 
 
 
 }
-
-
 
 int main()
 {
@@ -88,7 +91,7 @@ int main()
 	//task1();
 	//task2();
 	//task3();
-	task4();
-
+	//task4();
+	task5();
 }
 
