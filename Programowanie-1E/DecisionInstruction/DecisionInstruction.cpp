@@ -1,9 +1,17 @@
 #include <iostream>
 
 /*
+DRY - don't repeat yourself - nie powtarzaj siê 
+*/
+
+
+
+
+/*
 Napisz funkcjê która wczyta dwie liczby 
 i wykona dzielenia na nich 
 */
+
 
 
 void task1()
@@ -18,7 +26,7 @@ void task1()
 	// iloraz; 
 	int quotient;
 
-	if (secondNumber != 0)
+/*	if (secondNumber != 0)
 		quotient = firstNumber / secondNumber;
 
 	if (secondNumber != 0)
@@ -26,7 +34,15 @@ void task1()
 	
 	if (secondNumber == 0)
 		std::cout << "Dzielenie przez zero !!! \n"; 
+		tak robiæ nie wolno by my siê powtarzamy "if"			*/
 
+	if (secondNumber != 0)
+	{
+		quotient = firstNumber / secondNumber;
+		std::cout << "Iloraz:" << quotient << "\n";
+	}
+	if (secondNumber == 0)
+		std::cout << "Dzielenie przez zero !!! \n";
 }
 
 int main()
