@@ -18,10 +18,14 @@ void task1()
 	// iloraz; 
 	int quotient;
 
-	quotient = firstNumber / secondNumber;
+	if (secondNumber != 0)
+		quotient = firstNumber / secondNumber;
 
+	if (secondNumber != 0)
+		std::cout << "Iloraz:" << quotient << "\n";
 	
-	std::cout << "Iloraz:" << quotient << "\n";
+	if (secondNumber == 0)
+		std::cout << "Dzielenie przez zero !!! \n"; 
 
 }
 
