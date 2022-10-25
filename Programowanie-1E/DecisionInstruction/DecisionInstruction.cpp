@@ -26,23 +26,27 @@ void task1()
 	// iloraz; 
 	int quotient;
 
-/*	if (secondNumber != 0)
-		quotient = firstNumber / secondNumber;
+	/*	if (secondNumber != 0)
+			quotient = firstNumber / secondNumber;
 
-	if (secondNumber != 0)
-		std::cout << "Iloraz:" << quotient << "\n";
-	
-	if (secondNumber == 0)
-		std::cout << "Dzielenie przez zero !!! \n"; 
-		tak robiæ nie wolno by my siê powtarzamy "if"			*/
+		if (secondNumber != 0)
+			std::cout << "Iloraz:" << quotient << "\n";
+
+		if (secondNumber == 0)
+			std::cout << "Dzielenie przez zero !!! \n";
+			tak robiæ nie wolno by my siê powtarzamy "if"			*/
 
 	if (secondNumber != 0)
 	{
 		quotient = firstNumber / secondNumber;
 		std::cout << "Iloraz:" << quotient << "\n";
 	}
-	if (secondNumber == 0)
+	else /*w przeciwnym wypadku*/
+	
 		std::cout << "Dzielenie przez zero !!! \n";
+	
+	std::cout << "Koniec programu1 \n";
+
 }
 
 int main()
