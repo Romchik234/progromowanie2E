@@ -4,7 +4,22 @@
 DRY - don't repeat yourself - nie powtarzaj siê 
 */
 
+/*
+Operatory porównania: 
 
+*równoœci			==	
+*ró¿noœci			!=
+*wiêkszoœæ			>
+*mniejsze			< 
+*wieksze lub równe	>= 
+*mniejsze lub równe	<=
+
+aregument1 >= argument2 
+
+Wynikiem dzia³ania tych operatorów 
+jest wartoœæ logiczna true/false typu bool 
+
+*/
 
 
 /*
@@ -44,8 +59,7 @@ void task1()
 	else /*w przeciwnym wypadku*/
 		std::cout << "Dzielenie przez zero !!! \n";
 	
-	std::cout << "Koniec programu1 \n";
-
+	std::cout << "Koniec programu1 \n";	
 }
  
 /*
@@ -55,16 +69,21 @@ Napidz funkcjê która wczyta liczbê i wyœwietli informacjê czy jest ona dodatnia 
 void task2()
 {
 	int NumberToCheck;
+
 	std::cout << "Podaj liczbe do sprawdzenia:" << "\n";
 	std::cin >> NumberToCheck;
 
-	if (NumberToCheck = <0)
-		std::cout << "liczba jest ujemna \n"; 
-	else
+	if (NumberToCheck != 0)
 	{
-		std::cout << "Liczba jest dodatnia";
+		if (NumberToCheck < 0)
+			std::cout << " liczba jest ujemna \n";
+		else
+			std::cout << "Liczba jest dodatnia";
 	}
+	else
+		std::cout << "liczba rowna zero";
 
+	
 }
 
 int main()
