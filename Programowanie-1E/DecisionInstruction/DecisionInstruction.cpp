@@ -19,6 +19,9 @@ aregument1 >= argument2
 Wynikiem dzia³ania tych operatorów 
 jest wartoœæ logiczna true/false typu bool 
 
+bool zmienna = true; 
+bool zmienna2 = 5 > 74; 
+
 */
 
 
@@ -86,10 +89,26 @@ void task2()
 	
 }
 
+/*
+Napisz funkcjê, która wczyta liczbêi wyœwietli informacjê 
+czy jest ona w zakresie <10,25>.
+
+*/
+
+void task3()
+{
+	int NumberToCheck;
+
+	std::cout << "Podaj liczbe do sprawdzenia:" << "\n";
+	std::cin >> NumberToCheck;
+
+	if (NumberToCheck < 10)
+}
+
 int main()
 {
 	//	task1();	
-	task2();
-
+	//task2();
+	void task3();
 
 }
