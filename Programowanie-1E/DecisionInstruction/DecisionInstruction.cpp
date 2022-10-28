@@ -85,8 +85,6 @@ void task2()
 	}
 	else
 		std::cout << "liczba rowna zero";
-
-	
 }
 
 /*
@@ -99,16 +97,25 @@ void task3()
 {
 	int NumberToCheck;
 
-	std::cout << "Podaj liczbe do sprawdzenia:" << "\n";
+	std::cout << "Podaj liczbe do sprawdzenia (	¿eby spewnia³ warunek <10/25>):" << "\n";
 	std::cin >> NumberToCheck;
 
-	if (NumberToCheck < 10)
+	if (NumberToCheck >= 10)
+	{
+		if (NumberToCheck <= 25)
+			std::cout << "Ta liczba spewnia warunek";
+		else
+			std::cout << "liczba nie spewnia warunek";
+	}
+	else
+		std::cout << "liczba nie spewnia warunek";
+	
 }
 
 int main()
 {
 	//	task1();	
 	//task2();
-	void task3();
+	task3();
 
 }
