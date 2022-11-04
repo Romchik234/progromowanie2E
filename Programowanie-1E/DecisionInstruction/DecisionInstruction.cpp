@@ -29,13 +29,13 @@ Operatory logiczne:
 F-false
 T-true 
 
-			and				or 
-A	B	  A && B	      A || B
+			and				or			not
+A	B	  A && B	      A || B		!A
 
-F	F		F				F
-F	T		F				T
-T	F		F				T
-T	T		T				T
+F	F		F				F			T
+F	T		F				T			T
+T	F		F				T			F
+T	T		T				T			F
 
 
 */
@@ -130,9 +130,95 @@ void task3()
 
 }
 
+/*
+Napisz funkcjê która wczyta liczbê i wyœwietli informacje czy jest ona parzysta czy nie. 
+*/
+void task4()
+{
+	int numberToCheck, rest;
+	
+	std::cout << "Podaj liczbê do sprawdzenia \n";
+	std::cin >> numberToCheck; 
+
+	rest = numberToCheck % 2;
+	
+	if (!(rest > 0))
+		std::cout << "liczba jest parzysta \n";
+		
+	else
+		std::cout << "liczba nie parzysta \n";
+
+
+}
+
+/*
+Podaj bok kwadratu i wylicz pole i obwód 
+*/
+void task5()
+{
+	int bokKwadratu , Obwod , Pole;
+
+	std::cout << "Podaj bok kwadratu \n";
+	std::cin >> bokKwadratu;
+
+	Obwod = bokKwadratu * 4;
+	Pole = bokKwadratu * 2; 
+
+	std::cout << "Pole:" << Pole << "\n";
+	std::cout << "Obwod" << Obwod << "\n";
+}
+
+/*
+napisz funkcjêktóra wczyta 2 liczby i powie która liczba jest wiêksza 
+*/
+void task6()
+{
+	int firstNumber, secondNumber;
+
+	std::cout << "podaj pierwssza liczbe \n";
+	std::cin >> firstNumber;
+
+	std::cout << "podaj drug¹ liczbe \n";
+	std::cin >> secondNumber;
+
+	if (firstNumber > secondNumber)
+		std::cout << firstNumber << "\t jest wieksza \n";
+	else
+		std::cout << secondNumber << "\t jest wieksza \n";
+}
+
+/*
+Napisz instrukcje ktora wczyta 3 liczby i poka¿e która z nich najwêksza 
+*/
+void task7()
+{
+	int firstNumber, secondNumber, thirdNumber;
+
+	std::cout << "Podaj Pierwsza liczbe \n";
+		std::cin >> firstNumber;
+	std::cout << "Podaj Druga liczbe \n";
+		std::cin >> secondNumber;
+	std::cout << "Podaj Trzecia liczbe \n";
+		std::cin >> thirdNumber; 
+
+		if (firstNumber > secondNumber && firstNumber > thirdNumber)
+			std::cout << firstNumber << " jest najwieksza";
+		else
+			if (secondNumber > firstNumber && secondNumber > thirdNumber)
+				std::cout << secondNumber << " jest najwieksza";
+			else
+				std::cout << thirdNumber << " jest najwieksza";
+		
+
+}
+
 int main()
 {
 	//task1();	
 	//task2();
-	task3();
+	//task3();
+	//task4();
+	//task5();
+	//task6();
+	task7();
 }
