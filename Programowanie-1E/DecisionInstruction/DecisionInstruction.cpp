@@ -195,21 +195,65 @@ void task7()
 	int firstNumber, secondNumber, thirdNumber;
 
 	std::cout << "Podaj Pierwsza liczbe \n";
-		std::cin >> firstNumber;
+	std::cin >> firstNumber;
 	std::cout << "Podaj Druga liczbe \n";
-		std::cin >> secondNumber;
+	std::cin >> secondNumber;
 	std::cout << "Podaj Trzecia liczbe \n";
-		std::cin >> thirdNumber; 
+	std::cin >> thirdNumber;
 
-		if (firstNumber > secondNumber && firstNumber > thirdNumber)
-			std::cout << firstNumber << " jest najwieksza";
+	if (firstNumber > secondNumber && firstNumber > thirdNumber)
+		std::cout << firstNumber << " jest najwieksza";
+	else
+		if (secondNumber > firstNumber && secondNumber > thirdNumber)
+			std::cout << secondNumber << " jest najwieksza";
 		else
-			if (secondNumber > firstNumber && secondNumber > thirdNumber)
-				std::cout << secondNumber << " jest najwieksza";
-			else
-				std::cout << thirdNumber << " jest najwieksza";
-		
+			std::cout << thirdNumber << " jest najwieksza";
+}
 
+/*
+Napisza funkcjê która wczyta 2 liczby i wyœwietli je w kolejnoœci rosn¹cej
+*/
+void task8()
+{
+	int firstNumber, secondNumber;
+
+	std::cout << "Podaj Pierwsza liczbe \n";
+	std::cin >> firstNumber;
+	std::cout << "Podaj Druga liczbe \n";
+	std::cin >> secondNumber;
+
+	if (firstNumber >= secondNumber)
+		std::cout << secondNumber << "\t" << firstNumber;
+	else
+		std::cout << firstNumber <<"\t" << secondNumber;
+}
+
+/*
+to samo co 8task tylko liczby 3 
+*/
+void task9()
+{
+	int firstNumber1, secondNumber2 , thirdNumber3;
+
+	std::cout << "Podaj Pierwsza liczbe \n";
+	std::cin >> firstNumber1;
+	std::cout << "Podaj Druga liczbe \n";
+	std::cin >> secondNumber2;
+	std::cout << "Podaj trzecia liczbe \n";
+	std::cin >> thirdNumber3;
+
+	if (firstNumber1 >= secondNumber2 && secondNumber2 >= thirdNumber3)
+		std::cout << thirdNumber3 << secondNumber2 <<  firstNumber1;
+	else if (firstNumber1 >= thirdNumber3 && thirdNumber3 >= secondNumber2)
+			std::cout << secondNumber2 << thirdNumber3 <<  firstNumber1;
+	else if (secondNumber2 >= firstNumber1 && firstNumber1 >= thirdNumber3)
+			std::cout << thirdNumber3 << firstNumber1 << secondNumber2;
+	else if (secondNumber2 >= thirdNumber3 &&  thirdNumber3 >= firstNumber1)
+			std::cout << firstNumber1 << thirdNumber3 <<  secondNumber2;
+	else if (thirdNumber3 >= firstNumber1 && firstNumber1 >= secondNumber2)
+			std::cout << secondNumber2 << firstNumber1 <<  thirdNumber3;
+	else if(thirdNumber3 >= secondNumber2 && secondNumber2 >= firstNumber1)
+			std::cout << firstNumber1 << secondNumber2 << thirdNumber3;
 }
 
 int main()
@@ -220,5 +264,7 @@ int main()
 	//task4();
 	//task5();
 	//task6();
-	task7();
+	//task7();
+	//task8();
+	task9();
 }
