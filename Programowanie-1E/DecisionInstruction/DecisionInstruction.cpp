@@ -256,6 +256,72 @@ void task9()
 			std::cout << firstNumber1 << secondNumber2 << thirdNumber3;
 }
 
+/*
+
+dni tygodnia u know */
+
+void task10()
+{
+	int dayOfWeek;
+
+	std::cout << "Podaj numer dnia tygodnia (0-7)\n";
+	std::cin >> dayOfWeek;
+	if (dayOfWeek < 8 && dayOfWeek >= 0)
+	{
+		if (dayOfWeek == 0 || dayOfWeek == 7)
+			std::cout << "niedziela \n";
+		else if (dayOfWeek == 1)
+			std::cout << "poniedzialek \n";
+		else if (dayOfWeek == 2)
+			std::cout << "wtorek \n";
+		else if (dayOfWeek == 3)
+			std::cout << "sroda \n";
+		else if (dayOfWeek == 4)
+			std::cout << "czwartek\n";
+		else if (dayOfWeek == 5)
+			std::cout << "piatek \n";
+		else if (dayOfWeek == 6)
+			std::cout << "sobota \n";
+	}
+	else 
+		std::cout << "blad, zle podano nomer dnia tygodnia \n";
+}
+/*
+Zadanie 11*
+Napisz funkcjê, która wczyta wspó³czynniki równania kwadratowego i wyœwietli pierwiastki tego równania
+*/
+void task11()
+{
+	
+
+
+}
+
+/*
+Zadanie 12
+Napisz funkcjê, która wyœwietli komunikaty "gor¹co", "ciep³o", "zimno", "bardzo zimno"
+w zale¿noœci od wczytanej temperatury
+Zakresy: powy¿ej 30, 15-30, 0-15 i poni¿ej 0.
+*/
+
+void task12()
+{
+int numberToCheck;
+
+std::cout << "Podaj temperature \n";
+std::cin >> numberToCheck;
+
+	if(numberToCheck > 30)
+		std::cout << "goraco \n";
+	else if (numberToCheck < 31 && numberToCheck > 14)
+		std::cout << "cieplo \n";
+	else if (numberToCheck < 15 && numberToCheck > 0)
+		std::cout << "zimno \n";
+	else if (numberToCheck <= 0 )
+		std::cout << "mega zimno \n";
+
+
+}
 int main()
 {
 	//task1();	
@@ -266,5 +332,8 @@ int main()
 	//task6();
 	//task7();
 	//task8();
-	task9();
+	//task9();
+	task10();
+	task11();
+	//task12();
 }
