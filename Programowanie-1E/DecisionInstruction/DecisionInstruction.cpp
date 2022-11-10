@@ -1,23 +1,23 @@
-#include <iostream>
+ï»¿#include <iostream>
 
 /*
-DRY - don't repeat yourself - nie powtarzaj siê
+DRY - don't repeat yourself - nie powtarzaj siÄ™
 */
 
 /*
-Operatory porównania:
+Operatory porÃ³wnania:
 
-*równoœci			==
-*ró¿noœci			!=
-*wiêkszoœæ			>
+*rÃ³wnoÅ›ci			==
+*rÃ³Å¼noÅ›ci			!=
+*wiÄ™kszoÅ›Ä‡			>
 *mniejsze			<
-*wieksze lub równe	>=
-*mniejsze lub równe	<=
+*wieksze lub rÃ³wne	>=
+*mniejsze lub rÃ³wne	<=
 
 aregument1 >= argument2
 
-Wynikiem dzia³ania tych operatorów
-jest wartoœæ logiczna true/false typu bool
+Wynikiem dziaÅ‚ania tych operatorÃ³w
+jest wartoÅ›Ä‡ logiczna true/false typu bool
 
 bool zmienna = true;
 bool zmienna2 = 5 > 74;
@@ -42,7 +42,7 @@ T	T		T				T			F
 
 
 /*
-Napisz funkcjê która wczyta dwie liczby
+Napisz funkcjÄ™ ktÃ³ra wczyta dwie liczby
 i wykona dzielenia na nich
 */
 void task1()
@@ -65,7 +65,7 @@ void task1()
 
 		if (secondNumber == 0)
 			std::cout << "Dzielenie przez zero !!! \n";
-			tak robiæ nie wolno by my siê powtarzamy "if"			*/
+			tak robiÄ‡ nie wolno by my siÄ™ powtarzamy "if"			*/
 
 	if (secondNumber != 0)
 	{
@@ -79,7 +79,7 @@ void task1()
 }
 
 /*
-Napidz funkcjê która wczyta liczbê i wyœwietli informacjê czy jest ona dodatnia czy nie
+Napidz funkcjÄ™ ktÃ³ra wczyta liczbÄ™ i wyÅ›wietli informacjÄ™ czy jest ona dodatnia czy nie
 */
 void task2()
 {
@@ -100,7 +100,7 @@ void task2()
 }
 
 /*
-Napisz funkcjê, która wczyta liczbêi wyœwietli informacjê
+Napisz funkcjÄ™, ktÃ³ra wczyta liczbÄ™i wyÅ›wietli informacjÄ™
 czy jest ona w zakresie <10,25>.
 
 */
@@ -108,7 +108,7 @@ void task3()
 {
 	int NumberToCheck;
 
-	std::cout << "Podaj liczbe do sprawdzenia (	¿eby spewnia³ warunek <10/25>):" << "\n";
+	std::cout << "Podaj liczbe do sprawdzenia (	Å¼eby spewniaÅ‚ warunek <10/25>):" << "\n";
 	std::cin >> NumberToCheck;
 
 	/*
@@ -131,13 +131,13 @@ void task3()
 }
 
 /*
-Napisz funkcjê która wczyta liczbê i wyœwietli informacje czy jest ona parzysta czy nie. 
+Napisz funkcjÄ™ ktÃ³ra wczyta liczbÄ™ i wyÅ›wietli informacje czy jest ona parzysta czy nie. 
 */
 void task4()
 {
 	int numberToCheck, rest;
 	
-	std::cout << "Podaj liczbê do sprawdzenia \n";
+	std::cout << "Podaj liczbÄ™ do sprawdzenia \n";
 	std::cin >> numberToCheck; 
 
 	rest = numberToCheck % 2;
@@ -152,7 +152,7 @@ void task4()
 }
 
 /*
-Podaj bok kwadratu i wylicz pole i obwód 
+Podaj bok kwadratu i wylicz pole i obwÃ³d 
 */
 void task5()
 {
@@ -169,7 +169,7 @@ void task5()
 }
 
 /*
-napisz funkcjêktóra wczyta 2 liczby i powie która liczba jest wiêksza 
+napisz funkcjÄ™ktÃ³ra wczyta 2 liczby i powie ktÃ³ra liczba jest wiÄ™ksza 
 */
 void task6()
 {
@@ -178,7 +178,7 @@ void task6()
 	std::cout << "podaj pierwssza liczbe \n";
 	std::cin >> firstNumber;
 
-	std::cout << "podaj drug¹ liczbe \n";
+	std::cout << "podaj drugÄ… liczbe \n";
 	std::cin >> secondNumber;
 
 	if (firstNumber > secondNumber)
@@ -188,7 +188,7 @@ void task6()
 }
 
 /*
-Napisz instrukcje ktora wczyta 3 liczby i poka¿e która z nich najwêksza 
+Napisz instrukcje ktora wczyta 3 liczby i pokaÅ¼e ktÃ³ra z nich najwÄ™ksza 
 */
 void task7()
 {
@@ -211,7 +211,7 @@ void task7()
 }
 
 /*
-Napisza funkcjê która wczyta 2 liczby i wyœwietli je w kolejnoœci rosn¹cej
+Napisza funkcjÄ™ ktÃ³ra wczyta 2 liczby i wyÅ›wietli je w kolejnoÅ›ci rosnÄ…cej
 */
 void task8()
 {
@@ -241,7 +241,7 @@ void task9()
 	std::cin >> secondNumber2;
 	std::cout << "Podaj trzecia liczbe \n";
 	std::cin >> thirdNumber3;
-
+	/* 
 	if (firstNumber1 >= secondNumber2 && secondNumber2 >= thirdNumber3)
 		std::cout << thirdNumber3 << secondNumber2 <<  firstNumber1;
 	else if (firstNumber1 >= thirdNumber3 && thirdNumber3 >= secondNumber2)
@@ -254,8 +254,78 @@ void task9()
 			std::cout << secondNumber2 << firstNumber1 <<  thirdNumber3;
 	else if(thirdNumber3 >= secondNumber2 && secondNumber2 >= firstNumber1)
 			std::cout << firstNumber1 << secondNumber2 << thirdNumber3;
+     */	
+
+	if (firstNumber1 > secondNumber2);
 }
 
+/*
+ task ktory wczyta numer dnia tygodnia i wyswilti jego nazwe 
+*/
+
+
+void task10()
+{
+	int dayOfWeek;
+
+	std::cout << "Podaj numer dnia tygodnia (0-7)\n";
+	std::cin >> dayOfWeek;
+	if (dayOfWeek < 8 && dayOfWeek >= 0)
+	{
+		if (dayOfWeek == 0 || dayOfWeek == 7)
+			std::cout << "niedziela \n";
+		else if (dayOfWeek == 1)
+			std::cout << "poniedzialek \n";
+		else if (dayOfWeek == 2)
+			std::cout << "wtorek \n";
+		else if (dayOfWeek == 3)
+			std::cout << "sroda \n";
+		else if (dayOfWeek == 4)
+			std::cout << "czwartek\n";
+		else if (dayOfWeek == 5)
+			std::cout << "piatek \n";
+		else if (dayOfWeek == 6)
+			std::cout << "sobota \n";
+	}
+	else
+		std::cout << "blad, zle podano nomer dnia tygodnia \n";
+}
+/*
+Zadanie 11*
+Napisz funkcjÃª, ktÃ³ra wczyta wspÃ³Â³czynniki rÃ³wnania kwadratowego i wyÅ“wietli pierwiastki tego rÃ³wnania
+*/
+void task11()
+{
+
+
+
+}
+
+/*
+Zadanie 12
+Napisz funkcjÃª, ktÃ³ra wyÅ“wietli komunikaty "gorÂ¹co", "ciepÂ³o", "zimno", "bardzo zimno"
+w zaleÂ¿noÅ“ci od wczytanej temperatury
+Zakresy: powyÂ¿ej 30, 15-30, 0-15 i poniÂ¿ej 0.
+*/
+
+void task12()
+{
+	int numberToCheck;
+
+	std::cout << "Podaj temperature \n";
+	std::cin >> numberToCheck;
+
+	if (numberToCheck > 30)
+		std::cout << "goraco \n";
+	else if (numberToCheck < 31 && numberToCheck > 14)
+		std::cout << "cieplo \n";
+	else if (numberToCheck < 15 && numberToCheck > 0)
+		std::cout << "zimno \n";
+	else if (numberToCheck <= 0)
+		std::cout << "mega zimno \n";
+
+
+}
 int main()
 {
 	//task1();	
@@ -266,5 +336,8 @@ int main()
 	//task6();
 	//task7();
 	//task8();
-	task9();
+	//task9();
+	task10();
+	task11();
+	//task12();
 }
