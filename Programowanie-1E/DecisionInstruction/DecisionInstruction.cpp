@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 
 /*
 DRY - don't repeat yourself - nie powtarzaj się
@@ -181,10 +181,15 @@ void task6()
 	std::cout << "podaj drugą liczbe \n";
 	std::cin >> secondNumber;
 
-	if (firstNumber > secondNumber)
-		std::cout << firstNumber << "\t jest wieksza \n";
+	if (firstNumber == secondNumber)
+		std::cout << "liczby są równe \n";
 	else
-		std::cout << secondNumber << "\t jest wieksza \n";
+	{
+		if (firstNumber > secondNumber)
+			std::cout << firstNumber << "\t największa liczba \n";
+		else
+			std::cout << secondNumber << "\t największa liczba \n";
+	}
 }
 
 /*
@@ -233,7 +238,7 @@ to samo co 8task tylko liczby 3
 */
 void task9()
 {
-	int firstNumber1, secondNumber2 , thirdNumber3;
+	int firstNumber1, secondNumber2, thirdNumber3;
 
 	std::cout << "Podaj Pierwsza liczbe \n";
 	std::cin >> firstNumber1;
@@ -241,23 +246,41 @@ void task9()
 	std::cin >> secondNumber2;
 	std::cout << "Podaj trzecia liczbe \n";
 	std::cin >> thirdNumber3;
-	/* 
-	if (firstNumber1 >= secondNumber2 && secondNumber2 >= thirdNumber3)
-		std::cout << thirdNumber3 << secondNumber2 <<  firstNumber1;
-	else if (firstNumber1 >= thirdNumber3 && thirdNumber3 >= secondNumber2)
-			std::cout << secondNumber2 << thirdNumber3 <<  firstNumber1;
-	else if (secondNumber2 >= firstNumber1 && firstNumber1 >= thirdNumber3)
-			std::cout << thirdNumber3 << firstNumber1 << secondNumber2;
-	else if (secondNumber2 >= thirdNumber3 &&  thirdNumber3 >= firstNumber1)
-			std::cout << firstNumber1 << thirdNumber3 <<  secondNumber2;
-	else if (thirdNumber3 >= firstNumber1 && firstNumber1 >= secondNumber2)
-			std::cout << secondNumber2 << firstNumber1 <<  thirdNumber3;
-	else if(thirdNumber3 >= secondNumber2 && secondNumber2 >= firstNumber1)
-			std::cout << firstNumber1 << secondNumber2 << thirdNumber3;
-     */	
 
-	if (firstNumber1 > secondNumber2);
+
+	/*if (firstNumber1 >= secondNumber2 && secondNumber2 >= thirdNumber3)
+		std::cout << thirdNumber3 << "," << secondNumber2 << "," << firstNumber1;
+	else if (firstNumber1 >= thirdNumber3 && thirdNumber3 >= secondNumber2)
+		std::cout << secondNumber2 << "," << thirdNumber3 << "," << firstNumber1;
+	else if (secondNumber2 >= firstNumber1 && firstNumber1 >= thirdNumber3)
+		std::cout << thirdNumber3 << "," << firstNumber1 << "," << secondNumber2;
+	else if (secondNumber2 >= thirdNumber3 && thirdNumber3 >= firstNumber1)
+		std::cout << firstNumber1 << "," << thirdNumber3 << "," << secondNumber2;
+	else if (thirdNumber3 >= firstNumber1 && firstNumber1 >= secondNumber2)
+		std::cout << secondNumber2 << "," << firstNumber1 << "," << thirdNumber3;
+	else if (thirdNumber3 >= secondNumber2 && secondNumber2 >= firstNumber1)
+		std::cout << firstNumber1 << "," << secondNumber2 << "," << thirdNumber3;
+		*/
+	if (firstNumber1 >= secondNumber2 && firstNumber1 >= thirdNumber3 && secondNumber2 >= thirdNumber3)
+		std::cout << thirdNumber3 << "," << secondNumber2 << "," << firstNumber1;
+	else if (firstNumber1 >= secondNumber2 && firstNumber1 >= thirdNumber3 && thirdNumber3 >= secondNumber2)
+		std::cout << secondNumber2<< "," << thirdNumber3 << "," << firstNumber1;
+	else if (secondNumber2 >= firstNumber1 && secondNumber2 >= thirdNumber3 && thirdNumber3 >= firstNumber1)
+		std::cout << firstNumber1 << "," << thirdNumber3 << "," << secondNumber2;
+	else if (secondNumber2 >= firstNumber1 && secondNumber2 >= thirdNumber3 && firstNumber1 >= thirdNumber3)
+		std::cout << thirdNumber3<< "," << firstNumber1 << "," << secondNumber2;
+	else if (thirdNumber3 >= firstNumber1 && thirdNumber3 >= secondNumber2 && firstNumber1 >= secondNumber2)
+		std::cout << secondNumber2 << "," << firstNumber1 << "," << thirdNumber3;
+	else if (thirdNumber3 >= firstNumber1 && thirdNumber3 >= secondNumber2 && secondNumber2 >= firstNumber1)
+		std::cout << firstNumber1<< "," << secondNumber2<< "," << thirdNumber3;
+
+	if (firstNumber1 < secondNumber2 && firstNumber1 < thirdNumber3)
+		std::cout << firstNumber1 << ",";
+	else if ();
 }
+
+
+
 
 /*
  task ktory wczyta numer dnia tygodnia i wyswilti jego nazwe 
@@ -298,7 +321,6 @@ void task11()
 {
 
 
-
 }
 
 /*
@@ -336,8 +358,8 @@ int main()
 	//task6();
 	//task7();
 	//task8();
-	//task9();
-	task10();
-	task11();
+	task9();
+	//task10();
+	//task11();
 	//task12();
 }
