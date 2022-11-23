@@ -100,8 +100,7 @@ void task2()
 }
 
 /*
-Napisz funkcję, która wczyta liczbęi wyświetli informację
-czy jest ona w zakresie <10,25>.
+Napisz funkcję, która wczyta liczbęi wyświetli informację czy jest ona w zakresie <10,25>.
 
 */
 void task3()
@@ -261,6 +260,8 @@ void task9()
 	else if (thirdNumber3 >= secondNumber2 && secondNumber2 >= firstNumber1)
 		std::cout << firstNumber1 << "," << secondNumber2 << "," << thirdNumber3;
 		*/
+
+	
 	if (firstNumber1 >= secondNumber2 && firstNumber1 >= thirdNumber3 && secondNumber2 >= thirdNumber3)
 		std::cout << thirdNumber3 << "," << secondNumber2 << "," << firstNumber1;
 	else if (firstNumber1 >= secondNumber2 && firstNumber1 >= thirdNumber3 && thirdNumber3 >= secondNumber2)
@@ -273,10 +274,6 @@ void task9()
 		std::cout << secondNumber2 << "," << firstNumber1 << "," << thirdNumber3;
 	else if (thirdNumber3 >= firstNumber1 && thirdNumber3 >= secondNumber2 && secondNumber2 >= firstNumber1)
 		std::cout << firstNumber1<< "," << secondNumber2<< "," << thirdNumber3;
-
-	if (firstNumber1 < secondNumber2 && firstNumber1 < thirdNumber3)
-		std::cout << firstNumber1 << ",";
-	else if ();
 }
 
 
@@ -325,9 +322,7 @@ void task11()
 
 /*
 Zadanie 12
-Napisz funkcjê, która wyœwietli komunikaty "gor¹co", "ciep³o", "zimno", "bardzo zimno"
-w zale¿noœci od wczytanej temperatury
-Zakresy: powy¿ej 30, 15-30, 0-15 i poni¿ej 0.
+Napisz funkcjê, która wyœwietli komunikaty "gor¹co", "ciep³o", "zimno", "bardzo zimno" w zale¿noœci od wczytanej temperatury Zakresy: powy¿ej 30, 15-30, 0-15 i poni¿ej 0.
 */
 
 void task12()
@@ -343,13 +338,103 @@ void task12()
 		std::cout << "cieplo \n";
 	else if (numberToCheck < 15 && numberToCheck > 0)
 		std::cout << "zimno \n";
-	else if (numberToCheck <= 0)
+	else 
 		std::cout << "mega zimno \n";
 
 
 }
+
+//zadanie z tygodniami innym sposobem
+void task13()
+{
+	int dayOfWeek;
+
+	std::cout << "Podaj numer dnia tygodnia (0-7)\n";
+	std::cin >> dayOfWeek;
+
+	switch (dayOfWeek)
+	{
+	case 1:
+		std::cout << "poniedzialek \n";
+		break;
+	case 2:
+		std::cout << "wtorek \n";
+		break;
+	case 3:
+		std::cout << "sroda \n";
+		break;
+	case 4:
+		std::cout << "czwartek \n";
+		break;
+	case 5:
+		std::cout << "piatek\n";
+		break;
+	case 6:
+		std::cout << "sobota\n";
+	case 7:
+	case 0:
+		std::cout << "niedzila\n";
+		break;
+	default:
+		std::cout << " bladny podana liczba\n";
+
+	}
+}
+
 int main()
 {
+	setlocale(LC_CTYPE, "polish");
+
+	int taskNumber;
+	std::cout << "podaj numer zadania:\n";
+	std::cin >> taskNumber;
+
+	switch (taskNumber)
+	{
+	case 1:
+		task1(); //Napisz funkcję która wczyta dwie liczby i wykona dzielenia na nich
+		break;
+	case 2:
+		task2(); //Napidz funkcję która wczyta liczbę i wyświetli informację czy jest ona dodatnia czy nie
+		break;
+	case 3:
+		task3(); //Napisz funkcję, która wczyta liczbęi wyświetli informację czy jest ona w zakresie <10,25>.
+		break;
+	case 4:
+		task4();//Napisz funkcję która wczyta liczbę i wyświetli informacje czy jest ona parzysta czy nie. 
+		break;
+	case 5:
+		task5();//Podaj bok kwadratu i wylicz pole i obwód 
+		break;
+	case 6:
+		task6(); //napisz funkcjęktóra wczyta 2 liczby i powie która liczba jest większa
+		break;
+	case 7:
+		task7();//Napisz instrukcje ktora wczyta 3 liczby i pokaże która z nich najwększa 
+		break;
+	case 8:
+		task8(); //Napisza funkcję która wczyta 2 liczby i wyświetli je w kolejności rosnącej
+		break;
+	case 9:
+		task9();//to samo co 8task tylko liczby 3 
+		break;
+	case 10:
+		task10(); //task ktory wczyta numer dnia tygodnia i wyswilti jego nazwe 
+		break;
+	case 11:
+		task11(); //Napisz funkcjê, która wczyta wspó³czynniki równania kwadratowego i wyœwietli pierwiastki tego równania
+		break;
+	case 12:
+		task12(); //Napisz funkcjê, która wyœwietli komunikaty "gor¹co", "ciep³o", "zimno", "bardzo zimno" 
+				  //w zale¿noœci od wczytanej temperatury Zakresy: powy¿ej 30, 15-30, 0-15 i poni¿ej 0.
+		break;
+	case 13:
+		task13(); //zadanie z tygodniami innym sposobem
+		break;
+	default:
+		std::cout << "nIma";
+	}
+
 	//task1();	
 	//task2();
 	//task3();
@@ -358,8 +443,9 @@ int main()
 	//task6();
 	//task7();
 	//task8();
-	task9();
+	//task9();
 	//task10();
 	//task11();
 	//task12();
+	//task13();
 }
