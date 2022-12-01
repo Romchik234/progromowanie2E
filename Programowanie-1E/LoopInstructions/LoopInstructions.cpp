@@ -91,6 +91,32 @@ void task4()
 	std::cout << " tak, to liczba=" << randomNumber;
 }
 
+
+
+void task5()
+{
+	int currentNumber, endNumber;
+	std::cout << "podaj przedzial (x-y); X=\n";
+	std::cin >> currentNumber;
+	std::cout << "Y=\n";
+	std::cin >> endNumber;
+	/*
+	do
+	{
+		std::cout << currentNumber << "\n";						//cntrl+ H + D	(cntrl h)
+
+		currentNumber++;
+	} while (currentNumber != endNumber);	*/
+
+	while (currentNumber <= endNumber) // wykonuje je¿eli warunek prawdziwy
+	{
+		std::cout << currentNumber << "\n";
+		currentNumber++;
+	}
+
+}
+
+
 void task9120()
 {
 	int one;
@@ -100,7 +126,7 @@ void task9120()
 	do
 	{
 		std::cout << one;
-		one = one * 110;
+		one = one * 3;
 	} while (one != 1);
 
 }
@@ -110,6 +136,7 @@ int main()
 	//task1();
 	//task2();
 	//task3();
-	task4();
-	//task9120();
+	//task4();
+	task5();
+	task9120();
 }
