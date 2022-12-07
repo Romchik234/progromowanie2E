@@ -53,13 +53,13 @@ void task3()
 }
 
 /*
-zgadnij liczbe, zgadywanka 
+zgadnij liczbe, zgadywanka
 */
 void task4()
 {
-	int randomNumber , findNumber;
+	int randomNumber, findNumber;
 
-	srand(time(NULL)); 
+	srand(time(NULL));
 
 	/*
 	<1;100>
@@ -70,15 +70,15 @@ void task4()
 
 	<0; b-a>
 
-	rand() % (b - a + 1) + a;    <--ogólny wzór  
-	*/ 
+	rand() % (b - a + 1) + a;    <--ogólny wzór
+	*/
 
 	//od 1 do 100 <1;100>
-	randomNumber = rand() % 1000 + 1 ;
+	randomNumber = rand() % 1000 + 1;
 
 	//std::cout << "Wylosowana liczba jest\n " << randomNumber; 
 	std::cout << "Zgadnij liczbê od 1 do 1000 \n";
-	
+
 	do
 	{
 		std::cin >> findNumber;
@@ -86,8 +86,7 @@ void task4()
 			std::cout << "Liczba za du¿a\n";
 		if (findNumber < randomNumber)
 			std::cout << "liczba za ma³a\n";
-	}
-	while (findNumber != randomNumber);
+	} while (findNumber != randomNumber);
 	std::cout << " tak, to liczba=" << randomNumber;
 }
 
@@ -116,6 +115,80 @@ void task5()
 
 }
 
+//Napisz funkcje ktora policzy NWD 2 liczb 
+void task6()
+{
+	int numberOne,numberTwo; 
+	std::cout << " wprowadz 2 liczby\n";
+	std::cin >> numberOne;
+	std::cin >> numberTwo;
+
+	int dzielnik;
+
+	if (numberOne > numberTwo)
+		dzielnik = numberTwo;
+	else
+		dzielnik = numberOne;
+
+	while (numberOne % dzielnik != 0 || numberTwo % dzielnik != 0)
+	{
+		dzielnik--;
+	}
+	std::cout << " NWD=" << dzielnik;
+/*
+Wersja 2 algorytmu 
+NWD (a,b) = a jesli b = 0  
+NWD (a,b) = NWD (b, a % b) jesli b != 0
+*/
+
+	int a = numberOne;
+	int b = numberTwo;
+
+	while (b != 0)
+	{
+		int tmpA = a;
+		a = b;
+		b = tmpA % b;
+	}
+	std::cout << "NWD=" << dzielnik << "\n";
+	std::cout << "NWD=" << a << "\n";
+}
+
+//zadanie 7 policzenie silni 
+void task7()
+{
+	int numberFromUser;
+
+	std::cout << "podaj liczbe " << "\n";
+	std::cin >> numberFromUser;
+
+	unsigned long long i=2;
+	unsigned long long result =1;
+
+	while (i <= numberFromUser)
+	{
+		result = i * result;
+		i++;
+	}
+	std::cout << numberFromUser<< "! = " <<result<< "\n";
+
+	//lub druga nowa pêtla 
+
+
+	//	1(i jeden raz) |  to 2 |		  4|
+	for (int i = 2; i <= numberFromUser; i++)
+	{
+		// to 3													!!!
+		result = i * result;
+	}
+
+	// zeby powturzylo sie tyle ile chesz 
+
+	for (i = 0; i <= 3; i++)
+	{
+		//tak													!!!
+	}
+}
 
 void task9120()
 {
@@ -130,6 +203,8 @@ void task9120()
 	} while (one != 1);
 
 }
+
+
 int main()
 {
 	setlocale(LC_CTYPE, "polish");
@@ -137,6 +212,8 @@ int main()
 	//task2();
 	//task3();
 	//task4();
-	task5();
-	task9120();
+	//task5();
+	//task6();
+	task7();
+	//task9120();
 }
