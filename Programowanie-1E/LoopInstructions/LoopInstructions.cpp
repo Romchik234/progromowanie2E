@@ -190,6 +190,28 @@ void task7()
 	}
 }
 
+//wczytaæ napis i wyswietliæ ile jest liter "a" w tym wyrazie.
+void task8()
+{
+	std::string textFromUser;
+	std::cout << "Podaj wyraz\n"; 
+	std::cin >> textFromUser; 
+
+
+	textFromUser[0] = 'A'; 
+
+	std::cout << "Uytkownik poda³ " << textFromUser << "\n";
+	std::cout << "Napis sk³¹da siê z " << textFromUser.length() << " liter \n";			//!!!
+	std::cout << "Pierwszy znak z napisu jest  " << textFromUser[0] << "\n";			//!!! numeracja zaków od 0 (0 - pierwsza liczba)
+	std::cout << "Ostatni znak z napisu jest  " << textFromUser[textFromUser.length() - 1] << "\n";			//!!! ostatnia liczba 
+
+	int coutChar = 0; 
+	//liczymy znaki a 
+
+	std::cout << "znaków a jest  " << coutChar << "\n"; 
+
+}
+
 void task9120()
 {
 	int one;
@@ -214,6 +236,7 @@ int main()
 	//task4();
 	//task5();
 	//task6();
-	task7();
+	//task7();
+	task8();
 	//task9120();
 }
