@@ -1,4 +1,4 @@
-#include <iostream>
+Ôªø#include <iostream>
 
 
 
@@ -9,11 +9,11 @@ void task1()
 
 	do
 	{
-		std::cout << "podaj liczbÍ dodatniπ ";
+		std::cout << "podaj liczbƒô dodatniƒÖ ";
 		std::cin >> number;
 	} while (number <= 0);
 
-	std::cout << "poda≥eú liczbÍ:" << number;
+	std::cout << "poda≈Çe≈õ liczbƒô:" << number;
 
 
 
@@ -70,22 +70,22 @@ void task4()
 
 	<0; b-a>
 
-	rand() % (b - a + 1) + a;    <--ogÛlny wzÛr
+	rand() % (b - a + 1) + a;    <--og√≥lny wz√≥r
 	*/
 
 	//od 1 do 100 <1;100>
 	randomNumber = rand() % 1000 + 1;
 
 	//std::cout << "Wylosowana liczba jest\n " << randomNumber; 
-	std::cout << "Zgadnij liczbÍ od 1 do 1000 \n";
+	std::cout << "Zgadnij liczbƒô od 1 do 1000 \n";
 
 	do
 	{
 		std::cin >> findNumber;
 		if (findNumber > randomNumber)
-			std::cout << "Liczba za duøa\n";
+			std::cout << "Liczba za du≈ºa\n";
 		if (findNumber < randomNumber)
-			std::cout << "liczba za ma≥a\n";
+			std::cout << "liczba za ma≈Ça\n";
 	} while (findNumber != randomNumber);
 	std::cout << " tak, to liczba=" << randomNumber;
 }
@@ -107,7 +107,7 @@ void task5()
 		currentNumber++;
 	} while (currentNumber != endNumber);	*/
 
-	while (currentNumber <= endNumber) // wykonuje jeøeli warunek prawdziwy
+	while (currentNumber <= endNumber) // wykonuje je≈ºeli warunek prawdziwy
 	{
 		std::cout << currentNumber << "\n";
 		currentNumber++;
@@ -172,7 +172,7 @@ void task7()
 	}
 	std::cout << numberFromUser<< "! = " <<result<< "\n";
 
-	//lub druga nowa pÍtla 
+	//lub druga nowa pƒôtla 
 
 
 	//	1(i jeden raz) |  to 2 |		  4|
@@ -190,7 +190,7 @@ void task7()
 	}
 }
 
-//wczytaÊ napis i wyswietliÊ ile jest liter "a" w tym wyrazie.
+//wczytaƒá napis i wyswietliƒá ile jest liter "a" w tym wyrazie.
 void task8()
 {
 	std::string textFromUser;
@@ -198,32 +198,87 @@ void task8()
 	std::cin >> textFromUser; 
 
 
-	textFromUser[0] = 'A'; 
+	//textFromUser[0] = 'A'; 
 
-	std::cout << "Uytkownik poda≥ " << textFromUser << "\n";
-	std::cout << "Napis sk≥πda siÍ z " << textFromUser.length() << " liter \n";			//!!!
-	std::cout << "Pierwszy znak z napisu jest  " << textFromUser[0] << "\n";			//!!! numeracja zakÛw od 0 (0 - pierwsza liczba)
+	std::cout << "Uytkownik poda≈Ç " << textFromUser << "\n";
+	std::cout << "Napis sk≈ÇƒÖda siƒô z " << textFromUser.length() << " liter \n";			//!!!
+	std::cout << "Pierwszy znak z napisu jest  " << textFromUser[0] << "\n";			//!!! numeracja zak√≥w od 0 (0 - pierwsza liczba)
 	std::cout << "Ostatni znak z napisu jest  " << textFromUser[textFromUser.length() - 1] << "\n";			//!!! ostatnia liczba 
 
 	int coutChar = 0; 
 	//liczymy znaki a 
 
-	std::cout << "znakÛw a jest  " << coutChar << "\n"; 
+	for (int i = 0; i < textFromUser.length(); i++)
+	{
+		if (textFromUser[i] == 'a')
+			coutChar++;
+	}
+
+	std::cout << "Znak√≥w 'a' jest " << coutChar << "\n";
 
 }
-
-void task9120()
+/*
+Zadanie 9
+Napisz funkcj√™, kt√≥ra wczyta wyraz i zamieni du¬øe litery na ma¬≥e i odwrotnie
+*/
+void task9()
 {
-	int one;
+	std::string textFromUser;
+	std::cout << "Podaj wyraz\n";
+	std::cin >> textFromUser;
 
-	one = 1;
+	for (int i = 0; i < textFromUser.length(); i++)
+	{
+		//if (textFromUser[i] >= 65 && textFromUser[i] <= 90)
+		if (textFromUser[i] >= 'A' && textFromUser[i] <= 'Z')
+			textFromUser[i] = textFromUser[i] + 32;
+		else if (textFromUser[i] >= 'a' && textFromUser[i] <= 'z')
+			textFromUser[i] = textFromUser[i] - 32;
+	}
 
+	std::cout << "Napis po zamianie: " << textFromUser << "\n";
+}
+
+/*
+Zadanie 10
+Wczytaj liczb√™ od u¬øytkownika. Program zabezpiecz przed podaniem nie liczby.
+*/
+void task10()
+{
+	int numberFromUser;
+	std::string textFromUser;
+	bool isAllDigit;
 	do
 	{
-		std::cout << one;
-		one = one * 3;
-	} while (one != 1);
+		std::cout << "Podaj liczb√™\n";
+		//std::cin >> textFromUser;
+		std::getline
+		(std::cin, textFromUser);
 
+		isAllDigit = true;
+		//sprawdzi√¶ czy tak nie jest
+		for (int i = 0; i < textFromUser.length(); i++)
+		{
+			if (textFromUser[i] < '0' || textFromUser[i] > '9')
+			{
+				isAllDigit = false;
+			}
+		}
+		//if (isAllDigit == false)
+		if (!isAllDigit)
+		{
+			std::cout << "Podano b¬≥√™dn¬π dan¬π. Podaj jeszcze raz.\n";
+		}
+
+	} while (isAllDigit == false);//(u¬øytkownik nie poda¬≥ liczby);
+
+	numberFromUser = 0;
+	for (int i = 0; i < textFromUser.length(); i++)
+	{
+		numberFromUser = numberFromUser * 10 + (textFromUser[i] - '0');
+	}
+
+	std::cout << "Uzytkownik poda¬≥ " << numberFromUser << "\n";
 }
 
 
@@ -237,6 +292,7 @@ int main()
 	//task5();
 	//task6();
 	//task7();
-	task8();
-	//task9120();
+	//task8();
+	//task9();
+	task10();
 }
