@@ -101,14 +101,112 @@ void task3()
     std::cin >> numberFromUser;
 
     if (numberFromUser % 4 == 0 && numberFromUser % 100 != 0 )
-        std::cout << "rok jest normalny ";
+            std::cout << "rok jest przestêpnym uidsgjkdjgugjkdfjkhiuoitgj";
     else
-        std::cout << "rok jest przestêpnym uidsgjkdjgugjkdfjkhiuoitgj";
+           std::cout << "rok jest normalny ";
 }
+
+//4. Program wyœwietlaj¹cy odpowiedni komunikat w zale¿noœci od podanej oceny(np. "bardzo dobry" dla oceny 5, "dobry" dla oceny 4 itd.)
+void task4()
+{
+    int numberFromUser;
+
+    std::cout << "podaj ocene: \n";
+    std::cin >> numberFromUser;
+
+    switch (numberFromUser)
+    {
+    case 1:
+       std::cout << "hahah ale noob";
+        break;
+    case 2:
+        std::cout << "dwójka";
+       break;
+    case 3:
+        std::cout << " trójka";
+        break;
+    case 4:
+        std::cout << "czwórka";
+        break;
+    case 5: 
+        std::cout << "pi¹tka";
+        break;
+    case 6 :
+        std::cout << "szustka";
+        break;
+    default:
+        std::cout << "Ÿle poda³eœ liczbê";
+
+    }
+}
+//5. Program sprawdzaj¹cy czy podane has³o jest poprawne(np.jeœli has³o jest "abc123", program powinien 
+//    wyœwietliæ "has³o poprawne", jeœli jest inne, powinien wyœwietliæ "has³o niepoprawne").
+void task5()
+{
+    std::string userPassword, userText;
+    userPassword = "12popabobra";
+    std::cout << "podaj has³o :";
+    std::cin >> userText;
+
+    if (userPassword == userText)
+        std::cout << " has³o jest giga poprawne";
+    else
+        std::cout << " policja ju¿ wie";
+}
+//1. Program obliczaj¹cy œredni¹ arytmetyczn¹ dwóch liczb.
+
+void podstawy1()
+{
+    int firstNumber, secondNumber, mean;
+
+    std::cout << "podaj dwie liczby \n";
+    std::cin >> firstNumber;
+    std::cin >> secondNumber;
+
+    mean = firstNumber + secondNumber;
+    mean = mean / 2;
+    std::cout << " srednia wynosi " << mean;
+
+}
+//2. Program obliczaj¹cy pole prostok¹ta.
+void podstawy2()
+{
+    int firstNumber, secondNumber, area;
+
+    std::cout << "podaj dwie liczby \n";
+    std::cin >> firstNumber;
+    std::cin >> secondNumber;
+
+    area = firstNumber * secondNumber; 
+    std::cout << "pole wynosi " << area;
+}
+
+//3. Program obliczaj¹cy objêtoœæ sto¿ka.
+
+void podstawy3()
+{
+    float redius, height, area;
+
+    std::cout << "podaj radius i objetosc \n";
+    std::cin >> redius;
+    std::cin >> height;
+
+    area = M_PI * redius*redius * height;
+    area = 1 / 3 * area;
+    std::cout << "objetosc stozka jest :" << area; 
+}
+
 
 int main()
 {
+    //podstawy
+  //  podstawy1();
+   // podstawy2();
+     podstawy3();
+    //ify
     //task1();
     //task2();
-    task3();
+    //task3();
+    //task4();
+   // task5();
 }
