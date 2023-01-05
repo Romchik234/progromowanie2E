@@ -2,15 +2,15 @@
 
 /*
 Podstawy programowania:
-1. Program obliczaj¹cy œredni¹ arytmetyczn¹ dwóch liczb.
-2. Program obliczaj¹cy pole prostok¹ta.
-3. Program obliczaj¹cy objêtoœæ sto¿ka.
-4. Program obliczaj¹cy pole ko³a.
-5. Program obliczaj¹cy wartoœæ wyra¿enia a^2 + b^2
-6. Program obliczaj¹cy pole trójk¹ta o podstawie b i wysokoœci h
-7. Program obliczaj¹cy objêtoœæ kuli o promieniu r
-8. Program obliczaj¹cy pole trapezu o podstawach a i b oraz wysokoœci h
-9. Program obliczaj¹cy œredni¹ wa¿on¹ trzech liczb z podanymi odpowiednimi wagami w1, w2 i w3.
+1. Program obliczaj¹cy œredni¹ arytmetyczn¹ dwóch liczb.                                                +
+2. Program obliczaj¹cy pole prostok¹ta.                                                                 +   
+3. Program obliczaj¹cy objêtoœæ sto¿ka.                                                                 +
+4. Program obliczaj¹cy pole ko³a.                                                                       +
+5. Program obliczaj¹cy wartoœæ wyra¿enia a^2 + b^2                                                      +
+6. Program obliczaj¹cy pole trójk¹ta o podstawie b i wysokoœci h                                        +
+7. Program obliczaj¹cy objêtoœæ kuli o promieniu r                                                      +
+8. Program obliczaj¹cy pole trapezu o podstawach a i b oraz wysokoœci h                                 +
+9. Program obliczaj¹cy œredni¹ wa¿on¹ trzech liczb z podanymi odpowiednimi wagami w1, w2 i w3.          +
 Instrukcja If:
 1. Program sprawdzaj¹cy czy podana liczba jest parzysta czy nieparzysta
 2. Program sprawdzaj¹cy czy podana liczba jest dodatnia, ujemna czy równa zero
@@ -185,28 +185,173 @@ void podstawy2()
 
 void podstawy3()
 {
-    float redius, height, area;
+    double redius, height, area;
 
     std::cout << "podaj radius i objetosc \n";
     std::cin >> redius;
     std::cin >> height;
 
-    area = M_PI * redius*redius * height;
-    area = 1 / 3 * area;
+    area =  (redius * redius) * M_PI * height * 1 / 3;
     std::cout << "objetosc stozka jest :" << area; 
 }
+//4. Program obliczaj¹cy pole ko³a.
 
+void podstawy4()
+{
+    float redius, area;
+
+    std::cout << "podaj radius \n";
+    std::cin >> redius;
+
+    area = redius * redius * M_PI;
+    std::cout << "pole wynisu :" << area;
+}
+//5. Program obliczaj¹cy wartoœæ wyra¿enia a ^ 2 + b ^ 2
+void podstawy5()
+{
+    int numberUno , numberTwo, sume;
+
+    std::cout << "podajesz a: \n";
+    std::cin >> numberUno;
+    std::cout << "podaj b : \n";
+    std::cin >> numberTwo;
+
+    sume = numberUno * numberUno + numberTwo * numberTwo;
+    std::cout << "wartoœæwynosi : " << sume;
+}
+
+//6. Program obliczaj¹cy pole trójk¹ta o podstawie b i wysokoœci h
+void podstawy6()
+{
+    int number_b, number_h, sume;
+
+    std::cout << "podajesz podstawê: \n";
+    std::cin >> number_b;
+    std::cout << "podaj h : \n";
+    std::cin >> number_h;
+
+    sume = number_b * number_h / 2;
+    std::cout << "pole trójk¹ta wynosi :" << sume;
+}
+
+//7. Program obliczaj¹cy objêtoœæ kuli o promieniu 
+void podstawy7()
+{
+    double r, sume ;
+
+    std::cout << "podaj r : \n";
+    std::cin >> r;
+
+    sume = 4 * M_PI * (r * r);
+    std::cout << "pole kuli wynosi:" << sume;
+}
+
+//8. Program obliczaj¹cy pole trapezu o podstawach a i b oraz wysokoœci h
+void podstawy8()
+{
+    int number_b, number_a, number_h, sume;
+
+    std::cout << "podaj a: \n";
+    std::cin >> number_a;
+    std::cout << "podaj b : \n";
+    std::cin >> number_b;
+    std::cout << "podaj h";
+    std::cin >> number_h;
+
+    sume = (number_a + number_b) * number_h * 1 / 2;
+    std::cout << "pole wynosi :" << sume;
+}
+//9. Program obliczaj¹cy œredni¹ wa¿on¹ trzech liczb z podanymi odpowiednimi wagami w1, w2 i w3.
+void podstawy9()
+{
+    float oneRate, twoRate, thirdRate, scalesForOne, scalesForTwo, scalesForThird, endSume;
+    std::cout << "Podaj pierwsz¹ ocene:\n";
+    std::cin >> oneRate;
+    std::cout << "teraz jej wage:\n"; std::cin >> scalesForOne;
+    
+    std::cout << "podaj druga:\n";
+    std::cin >> twoRate;
+    std::cout << "i teraz wage :\n"; std::cin >> scalesForTwo;
+   
+    std::cout << "podaj 3 oceny : \n";
+    std::cin >> thirdRate;
+    std::cout << "podaj wage tej oceny: \n"; std::cin >> scalesForThird;
+   
+    endSume = (oneRate * scalesForOne + twoRate * scalesForTwo + thirdRate * scalesForThird) / (scalesForOne + scalesForTwo + scalesForThird);
+    std::cout << "waga wazona jest : " << endSume;
+
+}
+
+//6.Program sprawdzaj¹cy czy podana data jest poprawna(np.sprawdzaj¹c, czy dzieñ jest z zakresu od 1 do 31, miesi¹c od 1 do 12 itd.)
+
+void task6()
+{
+    int day, mouth, year;
+    std::cout << "podaj date(dzien) :\n";
+    std::cin  >>  day;
+    std::cout << "podaj miesiac :\n";
+    std::cin >> mouth;
+    std::cout << "podaj rok :\n";
+    std::cin >> year;
+
+    if (day < 32 && day >0)
+        std::cout << "data good\n";
+    else
+        std::cout << "data zle!\n";
+
+
+    if (mouth < 13 && mouth >0)
+        std::cout << "miesac good\n";
+    else
+        std::cout << " miesac zle!\n";
+
+    if (year > 0)
+        std::cout << "rok good";
+    else
+        std::cout << "rok jest zly!";
+}
+
+//7. Program wyœwietlaj¹cy odpowiedni komunikat w zale¿noœci od podanej temperatury(np. "ciep³o" dla temperatury
+//powy¿ej 20 stopni Celsjusza, "ch³odno" dla temperatury poni¿ej 10 stopni Celsjusza itd.)
+
+void task7()
+{
+    int temperatur;
+    std::cout << "podaj temerature:\n";
+    std::cin >> temperatur;
+
+    if (temperatur > 19)
+        std::cout << "goraco";
+    else 
+        if(temperatur >9)
+            std::cout << "cieplo";
+        else
+            if (temperatur>0)
+                std::cout << "zimno";
+            else
+                std::cout << "bardzo zimn";
+}
 
 int main()
 {
     //podstawy
-  //  podstawy1();
-   // podstawy2();
-     podstawy3();
+    // 
+    //podstawy1();
+    //podstawy2();
+    // podstawy3();  nie zrobione 
+    //podstawy4();
+    //podstawy5();
+    //podstawy6();
+    //podstawy7();
+    //podstawy8();
+    //podstawy9();
     //ify
+    // 
     //task1();
     //task2();
     //task3();
     //task4();
-   // task5();
+    //task5();
+    //task6();
+    task7();
 }
