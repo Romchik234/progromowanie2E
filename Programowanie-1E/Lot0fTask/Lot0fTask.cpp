@@ -332,6 +332,98 @@ void task7()
                 std::cout << "bardzo zimn";
 }
 
+//1. Program sprawdzaj¹cy czy podana liczba jest liczb¹ pierwsz¹(czyli tak¹, która dzieli siê tylko przez 1 i przez siebie sam¹)
+/*void looptask1()
+{
+    int number, i = 1, rest ;
+    
+    std::cout << "podaj liczbe:\n";
+    std::cin >> number;
+    
+
+    while (i < number * number && number % i ==0);
+    {
+        if (i == number)
+            i++;
+
+        number % i = rest;
+
+        if (rest == 0)
+            std::cout << "liczba nie jest pierwsz¹";
+        else
+            std::cout << "liczba jest pierwsza";
+
+    } 
+
+}*/
+
+//2. Program sprawdzaj¹cy czy podany ci¹g znaków jest
+//palindromem(czyli takim, który czytany od ty³u jest taki sam, jak czytany od przodu, np. "kajak")
+
+void looptask2()
+{
+  
+    int i = 0;
+    std::string textFromUser;
+    std::cout << "podaj wyraz palindromen:\n";
+    std::cin >> textFromUser;
+
+    int amount = textFromUser.length() -1;
+    
+    while ( i <= amount)
+    {
+        if (textFromUser[i] == textFromUser[amount])
+        {
+            amount--;
+            i++;
+        }
+        else
+            i = 10000;
+    }
+    if (i >= amount && i != 10000)
+        std::cout << "tak ten wyraz jest palindromen" << textFromUser;
+    else 
+    {
+    std::cout << "podales NIE prawidlowy wyraz";
+    }
+   
+}
+
+//3. Program sprawdzaj¹cy czy podane dwa s³owa s¹ anagramami(czyli takimi, które zawieraj¹
+//         te same litery, ale w innym uk³adzie, np. "klasa" i "salka")
+
+void looptask3()
+{
+    int letters, i = 0, b = 0;
+        ;
+
+    std::string userText1,userText2;
+    std::cout << "podaj wyraz anagramami:\n";
+    std::cin >> userText1;
+    std::cout << "i drugi :" << userText2;
+    std::cin >> userText2;
+
+    letters = userText1.length();
+
+    while (i > letters)
+    {
+        
+        if (userText1[i] == userText2[b])
+        {
+            i++;
+            if (i > letters)
+                std::cout << " zle ";
+        }
+        else
+            b++;
+        
+
+      
+
+    }
+    std::cout << "co?";
+}
+
 int main()
 {
     //podstawy
@@ -353,5 +445,10 @@ int main()
     //task4();
     //task5();
     //task6();
-    task7();
+    //task7();
+    //pêtle
+    //
+    //looptask1(); nie zrobione 
+    //looptask2(); TTTTAAAAK!!!!
+    looptask3();
 }
