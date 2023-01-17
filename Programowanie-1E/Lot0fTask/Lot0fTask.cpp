@@ -405,24 +405,81 @@ void looptask3()
 
     letters = userText1.length();
 
-    while (i > letters)
+    while (i <= letters || b <= 0)
     {
         
         if (userText1[i] == userText2[b])
         {
             i++;
-            if (i > letters)
-                std::cout << " zle ";
+            b = 0;
+            std::cout << "true\n";
         }
         else
+        {
             b++;
+            std::cout << " false\n";
+        }
         
-
-      
-
     }
-    std::cout << "co?";
 }
+
+//4. Program sprawdzaj¹cy czy podana liczba jest liczb¹ doskona³¹(czyli tak¹, której suma dzielników
+//(z wy³¹czeniem samej siebie) jest równa danej liczbie, np. 6 jest liczb¹ doskona³¹, poniewa¿ 1 + 2 + 3 = 6).
+
+void looptask4()
+{
+    int number;
+    std::cout << "podaj liczbe\n";
+    std::cin >> number;
+
+}
+
+//1. Program wyœwietlaj¹cy na ekranie kolejne liczby naturalne od 1 do 10
+
+void loopfor1()
+{
+    for (int i = 1; i <= 10; i++)
+        std::cout << i << "\n";
+}
+
+//2. Program obliczaj¹cy sumê liczb od 1 do 100
+void loopfor2()
+{
+    int resultat = 0;
+    for (int i = 1; i <= 100; i++)
+    {
+        resultat = resultat + i;
+        std::cout << resultat << "\n";
+    }
+}
+
+//3. Program wyœwietlaj¹cy na ekranie kwadraty liczb od 1 do 10 (np. 1, 4, 9, 16 itd.)
+
+void loopfor3()
+{
+    for (int i =1; i <= 10; i++)
+        std::cout << i * i << "\n";
+}
+
+//4. Program wyœwietlaj¹cy na ekranie silnie z liczb od 1 do 10 (np. 1!, 2!, 3!, 4! itd.)
+
+void loopfor4()
+{
+    int i2=1, sume = 1;
+    for (int i = 1; i <= 10; i++)
+    {
+        while (i2 <= i)
+        {
+            sume = sume * i2;
+            i2++; 
+            std::cout << sume << "\n";
+        }
+        
+        i++;
+    }
+
+}
+
 
 int main()
 {
@@ -449,6 +506,13 @@ int main()
     //pêtle
     //
     //looptask1(); nie zrobione 
-    //looptask2(); TTTTAAAAK!!!!
-    looptask3();
+    //looptask2(); 
+    //looptask3(); nie zrobione
+    //looptask4();nie zrobione 
+    //pêtla for 
+    //
+    //loopfor1();
+    //loopfor2();
+    //loopfor3();
+    loopfor4();
 }
