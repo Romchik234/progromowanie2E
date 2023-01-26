@@ -100,7 +100,7 @@ void task3()
 	std::cout << "podajesz liczbe: \n";
 	std::cin >> numberFromUser;
 
-	if (numberFromUser % 4 == 0 && numberFromUser % 100 != 0)
+	if (numberFromUser % 4 == 0 && numberFromUser % 100 != 0 || numberFromUser % 400 == 0)
 		std::cout << "rok jest przestêpnym uidsgjkdjgugjkdfjkhiuoitgj";
 	else
 		std::cout << "rok jest normalny ";
@@ -242,7 +242,7 @@ void podstawy7()
 	std::cout << "podaj r : \n";
 	std::cin >> r;
 
-	sume = 4 * M_PI * (r * r);
+	sume = 4.0/3 * M_PI * (r * r* r );
 	std::cout << "pole kuli wynosi:" << sume;
 }
 
@@ -340,21 +340,11 @@ void task7()
 	std::cout << "podaj liczbe:\n";
 	std::cin >> number;
 
-
-	while (i < number * number && number % i ==0);
+	while (i < number)
 	{
-		if (i == number)
-			i++;
-
-		number % i = rest;
-
-		if (rest == 0)
-			std::cout << "liczba nie jest pierwsz¹";
-		else
-			std::cout << "liczba jest pierwsza";
+		if 
 
 	}
-
 }*/
 
 //2. Program sprawdzaj¹cy czy podany ci¹g znaków jest
@@ -484,17 +474,105 @@ void loopfor5()
 	int first = 1, second = 1;
 	for (int i = 1; i < 11; i++)
 	{
-		std::cout << first << "*" << i << "=" << first * i << " \n";
+ 		std::cout << first << "*" << i << "=" << first * i << " \n";
 		//   second++;
 		if (i == 10)
 		{
 			i = 0;
 			first++;
+			std::cout << "\n";
 		}
 
 		if (first >= 11)
-			i == 100;
+			i = 100;
 	}
+
+
+}
+
+//6. Program wyœwietlaj¹cy na ekranie wszystkie liczby podzielne przez 3 z zakresu od 1 do 100
+void loopfor6()
+{
+	int rest; 
+	for (int i = 1; i <= 100; i++)
+	{
+		rest = i % 3;
+
+		if (rest == 0)
+			std::cout << i << "\n";
+
+	}
+
+}
+
+//7. Program obliczaj¹cy sumê kwadratów liczb od 1 do 10
+
+void loopfor7()
+{
+	int sume = 0, multiplication;
+	for (int i = 1; i <= 10; i++)
+	{
+		multiplication = i * i;
+		sume = multiplication + sume;
+		std::cout << i << "*" << i << " = " << multiplication << "======>" << sume  << "\n";
+
+	}
+
+}
+
+//8. Program wyœwietlaj¹cy na ekranie ci¹g Fibonacciego do 20 elementu 
+//(ci¹g Fibonacciego to ci¹g gdzie ka¿dy element jest sum¹ dwóch poprzednich, np. 0, 1, 1, 2, 3, 5, 8, 13 itd.)
+
+void loopfor8()
+{
+	int last =0 , secondLast=1, sume;
+	
+	for (int i = 1; i <= 20; i++)
+	{
+		sume = last + secondLast;
+		std::cout << sume << "\n";
+
+		if (last >= secondLast)
+			secondLast = sume;
+		else
+			last = sume; 
+	}
+}
+
+//9. Program wyœwietlaj¹cy na ekranie kolejne potêgi 2 od 2^0 do 2^10 (np. 2^0, 2^1, 2^2 itd.)
+
+void loopfor9()
+{
+	int multiplade=1  ,b = 1; 
+	for (int i = 0; i <= 10; i++)
+	{
+		b = 1; 
+		multiplade = 1;
+		while (b<=i)
+		{
+			multiplade = 2 * multiplade;
+			b++;
+		}
+		
+		std::cout << "2 ^ "<< i << " = " << multiplade << "\n";
+	}
+
+}
+
+//10. Program wyœwietlaj¹cy na ekranie kolejne elementy 
+//ci¹gu a_n = a_{n-1} + a_{n-2}, gdzie a_0=1, a_1=1 (ci¹g ten zaczyna siê od 1, 1, 2, 3, 5, 8, 13 itd.).
+
+void loopfor10()
+{
+
+
+
+
+}
+
+void dowhile1()
+{
+
 
 
 }
@@ -505,7 +583,7 @@ int main()
 	// 
 	//podstawy1();
 	//podstawy2();
-	// podstawy3(); nie zrobione 
+	//podstawy3(); 
 	//podstawy4();
 	//podstawy5();
 	//podstawy6();
@@ -533,5 +611,14 @@ int main()
 	//loopfor2();
 	//loopfor3();
 	//loopfor4();
-	loopfor5();
+	//loopfor5();
+	//loopfor6();
+	//loopfor7();
+	//loopfor8();
+	//loopfor9();
+	//loopfor10(); to sami Fabonaciego X
+	//
+	//Pêtla do-while:
+	//
+	dowhile1();
 }
