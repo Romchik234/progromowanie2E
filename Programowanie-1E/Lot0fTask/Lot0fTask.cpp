@@ -333,19 +333,30 @@ void task7()
 }
 
 //1. Program sprawdzaj¹cy czy podana liczba jest liczb¹ pierwsz¹(czyli tak¹, która dzieli siê tylko przez 1 i przez siebie sam¹)
-/*void looptask1()
+void looptask1()
 {
-	int number, i = 1, rest ;
+	int number;
 
 	std::cout << "podaj liczbe:\n";
 	std::cin >> number;
 
-	while (i < number)
-	{
-		if 
+	int isPrime = 1;
 
+	for (int i = 2; i < sqrt(number); i++ )  // wzraca pierwiastek z liczby number 
+	{
+		if (number % i == 0)
+		{
+			isPrime = 0;
+			break;
+		}
+	
 	}
-}*/
+	if (isPrime == 1)
+		std::cout << "Liczba pierwsza";
+	else
+		std::cout <<"Liczba jest normalna" ;
+	
+}
 
 //2. Program sprawdzaj¹cy czy podany ci¹g znaków jest
 //palindromem(czyli takim, który czytany od ty³u jest taki sam, jak czytany od przodu, np. "kajak")
@@ -569,11 +580,25 @@ void loopfor10()
 
 
 }
+//1. Program pytaj¹cy u¿ytkownika o has³o i wyœwietlaj¹cy komunikat "has³o poprawne" lub "has³o niepoprawne"
+//dopóki u¿ytkownik nie poda poprawnego has³a (np. "abc123").
 
 void dowhile1()
 {
 
+	std::string truePasword = "abc123";
+	std::string  password;
 
+	do {
+		std::cout << "Podaj Haslo :\n";
+		std::cin >> password;
+
+
+		if (password == truePasword)
+			std::cout << "haslo poprawne\n";
+		else
+			std::cout << "nie poprawne\n";
+	} while (password != truePasword);
 
 }
 
@@ -601,7 +626,7 @@ int main()
 	//task7();
 	//pêtle
 	//
-	//looptask1(); nie zrobione 
+	//looptask1(); 
 	//looptask2(); 
 	//looptask3(); nie zrobione
 	//looptask4(); nie zrobione 
