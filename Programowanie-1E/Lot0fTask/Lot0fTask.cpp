@@ -675,6 +675,14 @@ void hard3()
 
 }
 
+//4. Program wyci¹gaj¹cy informacje z numeru PESEL
+void hard4()
+{
+	int peselNumber;
+
+
+}
+
 int main()
 {
 	//podstawy
@@ -725,6 +733,6 @@ int main()
 	//
 	//hard1();
 	//hard2();
-	hard3();
-
+	//hard3(); nie zrobione 
+	hard4();
 }
