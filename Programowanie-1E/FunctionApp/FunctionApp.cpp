@@ -25,7 +25,7 @@ void task2()
 {
     int numberFroUser ;
 
-    getFirstNumber();
+   numberFroUser =  getFirstNumber();
 
 
     if (numberFroUser < 0)
