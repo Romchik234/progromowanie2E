@@ -602,6 +602,79 @@ void dowhile1()
 
 }
 
+//2. Program wyœwietlaj¹cy na ekranie kwadraty liczb od 1 do 10 (np. 1, 4, 9, 16 itd.) dopóki suma tych kwadratów nie przekroczy 1000.
+void dowhile2()
+{
+	int number = 1;
+	int sume;
+	do {
+		sume = number * number;
+		std::cout << sume << "\n";
+		number++;
+
+	} while (sume < 955);
+
+
+}
+
+//1. Program implementuj¹cy algorytm szyfrowania Cezara (proste szyfrowanie,
+//w którym ka¿dy znak w tekœcie jest zastêpowany innym znakiem, przesuniêtym o sta³¹ liczbê pozycji w alfabecie).
+
+void hard1()
+{
+	std::string liter, liter2;
+	int i=0, litersInWord;
+
+	while (true)
+	{
+		std::cin >> liter;
+		litersInWord = liter.length();
+		while( i <= litersInWord)
+		{
+			 liter[i] = liter[i] + 1;
+			 i++;
+		}
+		i = 0;
+		std::cout << liter << "\n";
+	}
+
+
+
+
+}
+
+//2. Program obliczaj¹cy najwiêkszy wspólny dzielnik (NWD) dwóch liczb
+void hard2()
+{
+	int first, second ,defenetli, endNumber = 1; 
+	std::cout << "podaj dwie liczby:" << "\n";
+
+	std::cin >> first; 
+	std::cin >> second;
+
+	std::cout << first << " - pierwsza twoja liczba \n";
+	std::cout << second << " - druga twoja liczba \n";
+
+	if (second >= first)
+		defenetli = first;
+	else
+		defenetli = second;
+
+	for (int i = 1; i <= defenetli; i++)
+	{
+		if (first % i == 0 && second % i == 0)
+			endNumber = i;
+	}
+	std::cout << endNumber << " - NWD";
+}
+
+//3. Program obliczaj¹cy najmniejsz¹ wspóln¹ wielokrotnoœæ (NWW) dwóch liczb.
+void hard3()
+{
+	//?????
+
+}
+
 int main()
 {
 	//podstawy
@@ -645,5 +718,13 @@ int main()
 	//
 	//Pêtla do-while:
 	//
-	dowhile1();
+	//dowhile1();
+	//dowhile2();
+	//
+	//trudnieszye programy
+	//
+	//hard1();
+	//hard2();
+	hard3();
+
 }
