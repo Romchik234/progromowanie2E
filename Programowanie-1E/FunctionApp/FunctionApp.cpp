@@ -1,40 +1,54 @@
-#include <iostream>
- 
-void ShowTextFromUser()
+﻿#include <iostream>
+
+void ShowTextForUser()
 {
-    std::cout << "podaj liczbe \n";
+	std::cout << "Podaj pierwsz¹ liczbê:\n";
 }
 
-int getFirstNumber()
+int GetFirstNumber()
 {
-    int numberFromUser; 
-    ShowTextFromUser();
-    std::cin >> numberFromUser;
-    return numberFromUser; 
+	int x;
+	ShowTextForUser();
+	std::cin >> x;
+	return x;
 }
 
 void task1()
 {
-    int numberFroUser ; 
-    numberFroUser = getFirstNumber();
+	int firstNumberFromUser = 2;
 
-    std::cout << "Podwojona wartosc to :" << (numberFroUser * 2) << "\n";
+	firstNumberFromUser = GetFirstNumber();
+
+	std::cout << "Podwojona wartoœæ to " << (firstNumberFromUser * 2) << "\n";
 }
 
 void task2()
 {
-    int numberFroUser ;
+	int firstNumberFromUser = 2;
 
-   numberFroUser =  getFirstNumber();
+	firstNumberFromUser = GetFirstNumber();
 
-
-    if (numberFroUser < 0)
-        std::cout << "liczba jest ujemna\n";
-    else
-        std::cout << "liczba jest dodatnia\n"; 
+	if (firstNumberFromUser > 0)
+		std::cout << "Liczba dodatnia\n";
+	else
+		std::cout << "Liczba ujemna\n";
 }
+
+void task3()
+{
+	double y;
+
+	y = sqrt(8);
+
+	std::cout << y;
+}
+
+
 int main()
 {
-    task1();
-    task2();
+	//task3();
+	task1();
+	//task2();
+	//task1();
+
 }
