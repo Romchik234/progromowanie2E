@@ -15,8 +15,22 @@ std::string getpesel()
 
 bool cheackPesel(std::string stringPesel)
 {
-
-
+	//dlugosc znakow (11)
+	if (stringPesel.length() != 11)
+		return false; 
+	//tylko cyfry 
+	for (int i = 0; i < 11; i++)
+	{
+		if (stringPesel[i] < '0'
+			|| stringPesel[i] > '9')
+		{
+			return false ; 
+		}
+	}
+	//poprawność miesiąca 
+	//poprawność dnia 
+	//poprawność cyfry kontrlonej 
+	return true; 
 }
 
 int main()
@@ -25,7 +39,7 @@ int main()
 
 	 if (cheackPesel(stringPesel) == true)
 	 {
-		 
+		 std::cout << "Pesel jest poprawny\n";
 	 }
 	 else
 	 {
