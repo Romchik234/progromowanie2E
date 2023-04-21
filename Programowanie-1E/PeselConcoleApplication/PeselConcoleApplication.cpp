@@ -10,6 +10,20 @@ int convertCharsToInt(char firstChar, char secondChar)
 	return (firstChar - 48) * 10 + (secondChar - 48) * 1;
 }
 
+int corectYear(int month, int year)
+{
+	if (month >= 1 && month <= 12)
+		return 1900 + year;
+	if (month >= 21 && month <= 32)
+		return 2000 + year;
+	if (month >= 41 && month <= 52)
+		return 2100 + year;
+	if (month >= 61 && month <= 72)
+		return 2200 + year;
+	if (month >= 81 && month <= 92)
+		return 1800 + year;
+}
+
 std::string getpesel()
 {
 	std::string stringPesel;
@@ -117,9 +131,9 @@ bool cheackPeselMonth(std::string stringPesel, std::string& errorMassage)
 bool cheackDay(std::string stringPesel, std::string& errorMassage)
 {
 	int day = convertCharsToInt(stringPesel[4], stringPesel[5]);
-	int month = convertCharsToInt(stringPesel[2], stringPesel[4]);
+	int month = convertCharsToInt(stringPesel[2], stringPesel[3]);
 	int year= convertCharsToInt(stringPesel[0], stringPesel[1]);
-	
+	int year = corectYear(month,year); 
 	errorMassage = "Dzien jest niepoprawny";
 
 	if (day < 1 || day > 31)
@@ -127,7 +141,8 @@ bool cheackDay(std::string stringPesel, std::string& errorMassage)
 
 	if (day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11))
 		return false; 
-	bool isLeapYear = (year % 4 == 0 && year % 100 != 0) || year % 400 = 0;
+
+	bool isLeapYear = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
 
 	if (month == 2 && day == 29 && !isLeapYear) //isLeapYear == false
 		return false;
@@ -136,7 +151,29 @@ bool cheackDay(std::string stringPesel, std::string& errorMassage)
 	return true; 
 }
 
+bool cheackPeselControlDigit(std::string stringPesel, std::string& errorMessage)
+{
+	int d0 = convertCharsToInt('0', stringPesel[0]);
+	int d1 = convertCharsToInt('0', stringPesel[1]);
+	int d2 = convertCharsToInt('0', stringPesel[2]);
+	int d3 = convertCharsToInt('0', stringPesel[3]);
+	int d4 = convertCharsToInt('0', stringPesel[4]);
+	int d5 = convertCharsToInt('0', stringPesel[5]);
+	int d6 = convertCharsToInt('0', stringPesel[6]);
+	int d7 = convertCharsToInt('0', stringPesel[7]);
+	int d8 = convertCharsToInt('0', stringPesel[8]);
+	int d9 = convertCharsToInt('0', stringPesel[9]);
+	int d9 = convertCharsToInt('0', stringPesel[9]);
+	int d10 = convertCharsToInt('0', stringPesel[10]);
 
+	int sum = d0 * 1 + d1 * 3 + d2 * 7 + d3 * 9 + d4 * 1 + d5 * 3 + d6 * 7 + d7 * 9 + d8 * 1 + d9 * 3 + d10 + 1; 
+	
+	if (sum % 10 == 0)
+		return true; 
+
+	errorMessage = "Bledny pesel - sprawdzenie liczby kontrolnej";
+	return false; 
+}
 bool cheackPesel(std::string stringPesel, std::string& errorMassage)
 {
 
@@ -149,10 +186,15 @@ bool cheackPesel(std::string stringPesel, std::string& errorMassage)
 
 	if (cheackPeselMonth(stringPesel, errorMassage) == false)
 		return false;
-	//poprawność miesiąca 
-	//poprawność dnia 
-	//poprawność cyfry kontrlonej 
+
+	if (cheackDay(stringPesel, errorMassage) == false)
+		return false; 
+
+	if (cheackPeselControlDigit(stringPesel, errorMassage) == false)
+		return false;
+
 	return true; 
+
 }
 
 int main()
@@ -169,7 +211,6 @@ int main()
 		 std::cout << errorMassage << "\n";
 	 }
 	//walidacja poprawnosci numeru pesel 
-
 
 	//wyciagniecie dannych 
 
