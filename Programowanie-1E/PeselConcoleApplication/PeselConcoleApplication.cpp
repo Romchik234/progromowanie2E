@@ -194,7 +194,6 @@ bool cheackPesel(std::string stringPesel, std::string& errorMassage)
 		return false;
 
 	return true; 
-
 }
 
 void showPeselInfo(std::string stringPesel)
