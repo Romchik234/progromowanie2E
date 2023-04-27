@@ -133,7 +133,7 @@ bool cheackDay(std::string stringPesel, std::string& errorMassage)
 	int day = convertCharsToInt(stringPesel[4], stringPesel[5]);
 	int month = convertCharsToInt(stringPesel[2], stringPesel[3]);
 	int year= convertCharsToInt(stringPesel[0], stringPesel[1]);
-	int year = corectYear(month,year); 
+	year = corectYear(month,year); 
 	errorMassage = "Dzien jest niepoprawny";
 
 	if (day < 1 || day > 31)
@@ -163,10 +163,9 @@ bool cheackPeselControlDigit(std::string stringPesel, std::string& errorMessage)
 	int d7 = convertCharsToInt('0', stringPesel[7]);
 	int d8 = convertCharsToInt('0', stringPesel[8]);
 	int d9 = convertCharsToInt('0', stringPesel[9]);
-	int d9 = convertCharsToInt('0', stringPesel[9]);
 	int d10 = convertCharsToInt('0', stringPesel[10]);
 
-	int sum = d0 * 1 + d1 * 3 + d2 * 7 + d3 * 9 + d4 * 1 + d5 * 3 + d6 * 7 + d7 * 9 + d8 * 1 + d9 * 3 + d10 + 1; 
+	int sum = d0 * 1 + d1 * 3 + d2 * 7 + d3 * 9 + d4 * 1 + d5 * 3 + d6 * 7 + d7 * 9 + d8 * 1 + d9 * 3 + d10 * 1; 
 	
 	if (sum % 10 == 0)
 		return true; 
@@ -174,6 +173,7 @@ bool cheackPeselControlDigit(std::string stringPesel, std::string& errorMessage)
 	errorMessage = "Bledny pesel - sprawdzenie liczby kontrolnej";
 	return false; 
 }
+
 bool cheackPesel(std::string stringPesel, std::string& errorMassage)
 {
 
@@ -197,20 +197,42 @@ bool cheackPesel(std::string stringPesel, std::string& errorMassage)
 
 }
 
+void showPeselInfo(std::string stringPesel)
+{
+	int day = convertCharsToInt(stringPesel[4], stringPesel[5]);
+	int month = convertCharsToInt(stringPesel[2], stringPesel[3]);
+	int year = convertCharsToInt(stringPesel[0], stringPesel[1]);
+	year = corectYear(month, year);
+	month = month % 20; 
+
+	std::cout << "\n " << "Data urodzenia: " << day << "-" << month << "-" << year << "\n"; 
+
+	int gender = convertCharsToInt('0 ', stringPesel[9]);
+
+	if (gender % 2 == 0)
+		std::cout << " plec: girl\n " ;
+	else 
+		std::cout << " plec: boy\n";
+
+}
+
 int main()
 {
-	 std::string stringPesel = getpesel(); 
-	 std::string errorMassage;
+	setlocale(LC_CTYPE, "polish"); 
 
-	 if (cheackPesel(stringPesel, errorMassage) == true)
-	 {
-		 std::cout << "Pesel jest poprawny\n";
-	 }
-	 else
-	 {
-		 std::cout << errorMassage << "\n";
-	 }
-	//walidacja poprawnosci numeru pesel 
+	std::string stringPesel = getpesel();
+	std::string errorMassage;
+
+	if (cheackPesel(stringPesel, errorMassage) == true)
+	{
+		std::cout << "Pesel jest poprawny\n";
+		showPeselInfo(stringPesel); 
+	}
+	else
+	{
+		std::cout << errorMassage << "\n";
+	}
+	
 
 	//wyciagniecie dannych 
 
