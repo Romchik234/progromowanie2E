@@ -19,7 +19,7 @@ void task2()
 	srand(time(NULL));
 	for (int i = 0;  i < size;  i++)
 	{
-		tabOfNumbers[i] = rand(;
+		tabOfNumbers[i] = rand;
 	}
 	std::cout << "Liczby w tablice :"; 
 	for (int i = 0; i < size; i++)
