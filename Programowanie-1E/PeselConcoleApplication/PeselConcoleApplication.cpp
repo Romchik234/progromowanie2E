@@ -231,9 +231,4 @@ int main()
 	{
 		std::cout << errorMassage << "\n";
 	}
-	
-
-	//wyciagniecie dannych 
-
-
 }
