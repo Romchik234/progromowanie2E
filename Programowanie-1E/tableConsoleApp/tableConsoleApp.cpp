@@ -15,13 +15,17 @@ void task2()
 {
 	const int size = 10;
 	int tabOfNumbers[size];
+	int smaller = 9999;
 
 	srand(time(NULL));
 	for (int i = 0;  i < size;  i++)
 	{
-		tabOfNumbers[i] = rand();
+		tabOfNumbers[i] = rand() %  1000;
+		if (tabOfNumbers[i] < smaller)
+			smaller = tabOfNumbers[i];
 	}
-	std::cout << "Liczby w tablice :"; 
+	std::cout << "najmniejsza liczba to:" << smaller << "\n";
+	std::cout << "Liczby w tablice : \n"; 
 	for (int i = 0; i < size; i++)
 	{
 		std::cout << tabOfNumbers[i] << "\n"; 
