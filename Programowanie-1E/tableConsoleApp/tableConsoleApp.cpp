@@ -30,7 +30,7 @@ void task2()
 	{
 		std::cout << tabOfNumbers[i] << "\n"; 
 	}
-}
+	}
 
 int main()
 {

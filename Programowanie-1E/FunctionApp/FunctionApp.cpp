@@ -34,11 +34,13 @@ void task2()
 		std::cout << "Liczba ujemna\n";
 }
 
+
+//kwadrat
 void task3()
 {
 	double y;
 
-	y = sqrt(8);
+	y = sqrt(4);
 
 	std::cout << y;
 }
@@ -46,8 +48,8 @@ void task3()
 
 int main()
 {
-	//task3();
-	task1();
+	task3();
+	//task1();
 	//task2();
 	//task1();
 
