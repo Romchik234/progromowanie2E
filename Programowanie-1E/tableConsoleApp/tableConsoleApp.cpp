@@ -2,12 +2,12 @@
 
 void task1()
 {
-	int a1, a2, a3; 
-	int tab[3]; 
+	int a1, a2, a3;
+	int tab[3];
 
 	for (int i = 0; i < 3; i++)
 	{
-		std::cin >> tab[i]; 
+		std::cin >> tab[i];
 	}
 }
 
@@ -35,30 +35,25 @@ void task2()
 void zadanieoue()
 {
 	const int tableSize = 3;
-	int tab[tableSize]; 
-	float avarageOfNumber; 
+	int tab[tableSize];
+	float avarageOfNumber;
 	float sumeOfNumbers = 0;
 
 	srand(time(NULL));
 	for (int i = 0; i < tableSize; i++)
 	{
-		tab[i] = rand() % 10; 
-		sumeOfNumbers = sumeOfNumbers + tab[i]; 
+		tab[i] = rand() % 10;
+		sumeOfNumbers = sumeOfNumbers + tab[i];
 	}
- 
-	avarageOfNumber = sumeOfNumbers / tableSize; 
-	
-	for (int i = 0; i  < tableSize; i ++)
+
+	avarageOfNumber = sumeOfNumbers / tableSize;
+
+	for (int i = 0; i < tableSize; i++)
 	{
 		std::cout << tab[i] << ", ";
 	}
-	std::cout << "\n" << "srednia = " << avarageOfNumber; 
+	std::cout << "\n" << "srednia = " << avarageOfNumber;
 }
-/*
-* Napisz funkcjê, która dla kolekcji danych liczbowych znajdzie najd³u¿szy rosn¹cy podci¹g.								task6
-* Napisz funkcjê, która dla kolekcji danych liczbowych przeniesie te liczby do osobnych kolekcji liczb parzystych i nieparzystych. task 7
-*/
-
 
 //*Napisz funkcjê, która dla kolekcji danych liczbowych policzy ile jest liczb wiêkszych od œredniej arytmetycznej.task3
 
@@ -80,11 +75,11 @@ void task3()
 
 	std::cout << "\n" << "srednia = " << avarageOfNumber;
 
-	int numbersBiggerThenAvarage =0;
+	int numbersBiggerThenAvarage = 0;
 
-	for (int i = 0;  i < tableSize;  i++)
+	for (int i = 0; i < tableSize; i++)
 	{
-		if ( tab[i] > avarageOfNumber)
+		if (tab[i] > avarageOfNumber)
 		{
 			numbersBiggerThenAvarage++;
 		}
@@ -93,7 +88,7 @@ void task3()
 	std::cout << "\n" << "Liczb wiekszych od sredniej = " << numbersBiggerThenAvarage;
 }
 
- 
+
 // *Napisz funkcje, która dla kolekcji danych liczbowych przeniesie te liczby do innej kolekcji w odwrotnej kolejnoœci.task4
 
 void task4()
@@ -112,12 +107,12 @@ void task4()
 
 	for (int i = 0, j = tableSize - 1; i < tableSize; i++, j--)
 	{
-		secondTab[j]= tab[i];
+		secondTab[j] = tab[i];
 	}
 
 	for (int i = 0; i < tableSize; i++)
 	{
-		std::cout << secondTab[i] << ", "; 
+		std::cout << secondTab[i] << ", ";
 	}
 }
 
@@ -125,22 +120,22 @@ void task4()
 //nie dokoncz
 void task5()
 {
-	const int bottomRange =  -11;
+	const int bottomRange = -11;
 	const int upperRange = 20;
-	const int tableSize = upperRange +1 ;
+	const int tableSize = upperRange + 1;
 	int tab[tableSize];
 	int intervalOfNumber[tableSize];
 
 
 	for (int i = 0; i < tableSize; i++)
 	{
-		intervalOfNumber[i] = 0; 
+		intervalOfNumber[i] = 0;
 	}
-	
+
 	srand(time(NULL));
 	for (int i = 0; i < tableSize; i++)
 	{
-		tab[i] = rand() % (upperRange - bottomRange + 1) + bottomRange;
+		tab[i] = rand() % (upperRange - bottomRange + 1) + bottomRange;						//zadanie jest nie dokonczone !
 		std::cout << tab[i] << ", ";
 	}
 
@@ -153,9 +148,74 @@ void task5()
 
 	for (int i = 0; i < tableSize; i++)
 	{
-		std::cout << "czestotliwosc liczby " << i  << " jest:  " << intervalOfNumber[i] << "\n";
+		std::cout << "czestotliwosc liczby " << i << " jest:  " << intervalOfNumber[i] << "\n";
 	}
-	
+
+}
+
+//*Napisz funkcjê, która dla kolekcji danych liczbowych znajdzie najd³u¿szy rosn¹cy podci¹g.task6
+void task6()
+{
+	const int size = 15;
+	int tab[size];
+	int garage = 0;
+
+	srand(time(NULL));
+	for (int i = 0; i < size; i++)
+	{
+		tab[i] = rand() % 100 + 1;
+		std::cout << tab[i] << ", ";
+	}
+
+	for (int i = 0; i < size; i++)
+	{
+
+	}
+
+}
+
+//Napisz funkcjê, która dla kolekcji danych liczbowych przeniesie te liczby do osobnych kolekcji liczb parzystych i nieparzystych.task 7
+
+void task7()
+{
+	const int size = 10;
+	int tab[size];
+	int tabEven[size]; //parzyste 
+	int tabOdd[size];  //nieparzyste 
+
+	int numbersEven = 0;
+	int numbersOdd = 0;
+
+	srand(time(NULL));
+	for (int i = 0; i < size; i++)
+	{
+		tab[i] = rand() % 100 + 1;
+		std::cout << tab[i] << ", ";
+
+		if (tab[i] % 2 == 0)
+		{
+			tabEven[numbersEven] = tab[i];
+			numbersEven++;
+		}
+		else
+		{
+			tabOdd[numbersOdd] = tab[i];
+			numbersOdd++;
+		}
+	}
+
+	std::cout << "\n" << "liczby parzyste:" << "\n";
+
+	for (int i = 0; i < numbersEven; i++)
+	{
+		std::cout << tabEven[i] << ", ";
+	}
+
+	std::cout << "\n" << "liczby nieparzyste:" << "\n";
+	for (int i = 0; i < numbersOdd; i++)
+	{
+		std::cout << tabOdd[i] << ", ";
+	}
 }
 
 int main()
@@ -164,6 +224,8 @@ int main()
 	//task2();
 	//zadanieoue();
 	//task3();
-	//task4();
-	task5(); 
+	//task4();   //cntrl + k + d is super 
+	// nie do koncz task5(); 
+	// nie zrobione task6();
+	//task7();
 }
