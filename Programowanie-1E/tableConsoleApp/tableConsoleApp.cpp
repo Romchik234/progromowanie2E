@@ -120,14 +120,14 @@ void task4()
 //nie dokoncz
 void task5()
 {
-	const int bottomRange = -11;
-	const int upperRange = 20;
-	const int tableSize = upperRange + 1;
+	const int bottomRange = -4;
+	const int upperRange = 5;
+	const int tableSize = 10;
 	int tab[tableSize];
-	int intervalOfNumber[tableSize];
+	int intervalOfNumber[upperRange -bottomRange + 1];
 
 
-	for (int i = 0; i < tableSize; i++)
+	for (int i = 0; i < upperRange - bottomRange + 1; i++)
 	{
 		intervalOfNumber[i] = 0;
 	}
@@ -135,20 +135,20 @@ void task5()
 	srand(time(NULL));
 	for (int i = 0; i < tableSize; i++)
 	{
-		tab[i] = rand() % (upperRange - bottomRange + 1) + bottomRange;						//zadanie jest nie dokonczone !
+		tab[i] = rand() % (upperRange - bottomRange + 1) + bottomRange;		
 		std::cout << tab[i] << ", ";
 	}
 
 	for (int i = 0; i < tableSize; i++)
 	{
-		intervalOfNumber[tab[i]] = intervalOfNumber[tab[i]] + 1;
+		intervalOfNumber[tab[i] - bottomRange]++;
 	}
 
 	std::cout << "\n";
 
-	for (int i = 0; i < tableSize; i++)
+	for (int i = 0; i < upperRange - bottomRange +1 ; i++)
 	{
-		std::cout << "czestotliwosc liczby " << i << " jest:  " << intervalOfNumber[i] << "\n";
+		std::cout << "czestotliwosc liczby " <<( i + bottomRange) << " jest:  " << intervalOfNumber[i] << "\n";
 	}
 
 }
@@ -156,22 +156,41 @@ void task5()
 //*Napisz funkcjê, która dla kolekcji danych liczbowych znajdzie najd³u¿szy rosn¹cy podci¹g.task6
 void task6()
 {
-	const int size = 15;
+	const int bottomRange = 1;
+	const int upperRange = 10;
+	const int size = 10;
 	int tab[size];
-	int garage = 0;
 
 	srand(time(NULL));
 	for (int i = 0; i < size; i++)
 	{
-		tab[i] = rand() % 100 + 1;
+		tab[i] = rand() % (upperRange - bottomRange + 1) + bottomRange;
 		std::cout << tab[i] << ", ";
-	}
 
-	for (int i = 0; i < size; i++)
+	}
+	
+	int maxSubsequencelLenght = 1;
+	int currentSubsequencelLenght = 1;
+
+	for (int i = 1; i < size; i++)
 	{
-
+		if (tab[i] >= tab[i - 1])
+			currentSubsequencelLenght++;
+		else if (currentSubsequencelLenght > maxSubsequencelLenght)
+		{
+			maxSubsequencelLenght = currentSubsequencelLenght;
+			currentSubsequencelLenght = 1;
+		}
+		else
+			currentSubsequencelLenght = 1; 
+	}
+	
+	if (currentSubsequencelLenght > maxSubsequencelLenght)
+	{
+		maxSubsequencelLenght = currentSubsequencelLenght;
 	}
 
+	std::cout << "\n" << " Najdlurzszy podciag jest = " << maxSubsequencelLenght; 
 }
 
 //Napisz funkcjê, która dla kolekcji danych liczbowych przeniesie te liczby do osobnych kolekcji liczb parzystych i nieparzystych.task 7
@@ -225,7 +244,7 @@ int main()
 	//zadanieoue();
 	//task3();
 	//task4();   //cntrl + k + d is super 
-	// nie do koncz task5(); 
-	// nie zrobione task6();
-	//task7();
+	 //task5(); 
+	//task6();
+	task7();
 }
