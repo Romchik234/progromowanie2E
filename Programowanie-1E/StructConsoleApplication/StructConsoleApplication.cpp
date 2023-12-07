@@ -1,6 +1,12 @@
 ﻿#include <iostream>
 //#include <cmath>
 
+struct point {
+
+	int x;
+	int y;
+};
+
 //Napisz program, który obliczy odległość punktu w przestrzeni 2D od środka układu współrzędnych.
 void task1()
 {
@@ -37,9 +43,20 @@ void task2()
 	std::cout << "Odległość do punktu (0,0) punktu (" << x1 << ", " << y1 << ") wynosi " << d1 << "\n";
 }
 
+void displayAnswer(point ourPoint, double d)
+{
+	std::cout << "Odległość do punktu (0,0) punktu (" << ourPoint.x << ", " << ourPoint.y << ") wynosi " << d << "\n";
+}
+
 void displayAnswer(double x, double y, double d)
 {
 	std::cout << "Odległość do punktu (0,0) punktu (" << x << ", " << y << ") wynosi " << d << "\n";
+}
+
+double calculateDistance(point ourPoint)
+{
+	double d = sqrt(ourPoint.x * ourPoint.x + ourPoint.y * ourPoint.y);
+	return d;
 }
 
 double calculateDistance(double x, double y)
@@ -54,6 +71,14 @@ void GetCoordinates(double& x, double& y)
 	std::cin >> x;
 	std::cout << "Podaj Y:\n";
 	std::cin >> y;
+}
+
+void GetCoordinates(point& ourPoint)
+{
+	std::cout << "Podaj X:\n";
+	std::cin >> ourPoint.x;
+	std::cout << "Podaj Y:\n";
+	std::cin >> ourPoint.y;
 }
 
 void task3()
@@ -93,29 +118,45 @@ void task4()
 	}
 }
 
-
+struct point {
+	double x, y;
+	std::string opisPunktu;
+};
 
 //Napisz program, który obliczy odległość punktu w przestrzeni 3D od środka układu współrzędnych.
 void task5()
 {
-	double x, y, z;
+	//double x, y;
+	point ourPoint;
 	std::cout << "Podaj X:\n";
-	std::cin >> x;
+	std::cin >> ourPoint.x;
 	std::cout << "Podaj Y:\n";
-	std::cin >> y;
-	std::cout << "Podaj z:\n";
-	std::cin >> z;
+	std::cin >> ourPoint.y;
 
-	double d = sqrt(x * x + y * y + z * z);
+	double d = sqrt(ourPoint.x * ourPoint.x + ourPoint.y * ourPoint.y);
 
-	std::cout << "Odległość do punktu (0,0,0) punktu (" << x << ", " << y << ", " << z << ") wynosi " << d << "\n";
+	std::cout << "Odległość do punktu (0,0) punktu (" << ourPoint.x << ", " << ourPoint.y << ") wynosi " << d << "\n";
 }
 
+void task6()
+{
+	point ourPoint;
+
+	GetCoordinates(ourPoint);
+
+	double d = calculateDistance(ourPoint);
+
+	displayAnswer(ourPoint, d);
+
+}
 
 int main()
 {
 	//task1();
 	//task2();
 	//task3(); cntrl + k+ +d 
-	task4();
+	//task4();
+	//task5();
+	task6();
 }
+ 
