@@ -11,6 +11,14 @@ private:
 	//short height;
 	//char sex; // M - male | F - female
 public:
+	person()
+	{
+		name = "Jan";
+		surname= "KOwalkisk";
+		age = 25;
+	}
+
+
 	void showInfo()			//metoda
 	{
 		cout << " Info o osoie : \n";
@@ -34,17 +42,25 @@ public:
 			cout << "B³êdna wartoœæ\n";
 
 	}
+
+	short GetAge()
+	{
+		return age;
+	}
 };
 
 
 int main()
 {
+	setlocale(LC_CTYPE, "polish");
+
 	person firstPerson;				//objekt
 
 	//firstPerson.name = "Jan";
 	//.surname = "Kowalski";
 	//firstPerson.age = 5;
 	firstPerson.SetAge(5000);
+	std::cout << "Wiek: " << firstPerson.GetAge() << "\n"; 
 
 	firstPerson.showInfo();
 
