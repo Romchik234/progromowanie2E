@@ -29,6 +29,11 @@ public:
 
 	}
 
+	~person()
+	{
+		std::cout << "Teraz dzia³a destruktor: Imie " << name << " \n"; 
+	}
+
 	bool isLegalAge()
 	{
 		return age >= 18;
