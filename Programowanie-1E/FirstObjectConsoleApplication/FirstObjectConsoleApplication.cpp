@@ -27,7 +27,7 @@ public:
 		cout << "Wiek : " << age << "\n";
 
 
-	}
+	} 
 
 	~person()
 	{
