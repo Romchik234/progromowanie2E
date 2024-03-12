@@ -23,9 +23,9 @@ Zdefiniuj klase opisuj¹ce konto bankowe. Mo¿liwoœci klasy:
 * metodê która poka¿e informacje o koncie.
 
 Napisz program który zaprezentuje mo¿liwoœci obiektu na podstawie tej klasy.
-*/     
+*/
 
-class point
+class Point
 {
 private:
 	string name;
@@ -33,7 +33,7 @@ private:
 	float yLine;
 	short quarter;
 public:
-	point()
+	Point()
 	{
 		name = "A";
 		xLine = 0;
@@ -41,15 +41,15 @@ public:
 		quarter = 0;
 	}
 
-	point(string name, float x, float y, short quarter)
+	Point(string name, float x, float y, short quarter)
 	{
-		name = name; 
+		name = name;
 		xLine = x;
-		yLine = y; 
-		quarter = quarter; 
-   	}
+		yLine = y;
+		this->quarter = quarter;
+	}
 
-	void declarationPoint()
+	void DeclarationPoint()
 	{
 		cout << "Podaj nazwe punktu: \n";
 		cin >> name;
@@ -57,10 +57,10 @@ public:
 		cin >> xLine;
 		cout << "Podaj wspolrzedne y: \n";
 		cin >> yLine;
-		quarter = findQuarter(xLine, yLine);
+		quarter = FindQuarter(xLine, yLine);
 	}
 
-	short findQuarter(float xLine, float yLine)
+	short FindQuarter(float xLine, float yLine)
 	{
 		if (xLine > 0 && yLine > 0)
 			return 1;
@@ -74,7 +74,7 @@ public:
 			return 0;
 	}
 
-	void showInfoofPoint()
+	void ShowInfoofPoint()
 	{
 		cout << "\n----------------------------\n";
 		cout << "imie punktu: " << name << " \n";
@@ -85,35 +85,165 @@ public:
 
 	}
 
-	void distanceBetweenPoints(point firstPoint)
+	void DistanceBetweenPoints(Point firstPoint)
 	{
 		cout << "Odleglosc pomiedzy punktami :  " << sqrt((xLine - firstPoint.xLine) * (xLine - firstPoint.xLine) + (yLine - firstPoint.yLine) * (yLine - firstPoint.yLine)) << " \n";
 	}
 };
 void task1()
 {
-	point firstPoint;
-	point secondPoint;
-	point thirdPoint("Opa", 3, 4, 1);
+	Point firstPoint;
+	Point secondPoint;
+	Point thirdPoint("Opa", 3, 4, 1);
 
-	firstPoint.declarationPoint();
-	firstPoint.showInfoofPoint();
+	firstPoint.DeclarationPoint();
+	firstPoint.ShowInfoofPoint();
 
 
 
-	secondPoint.declarationPoint();
-	secondPoint.showInfoofPoint();
-	secondPoint.distanceBetweenPoints(firstPoint);
+	secondPoint.DeclarationPoint();
+	secondPoint.ShowInfoofPoint();
+	secondPoint.DistanceBetweenPoints(firstPoint);
 
 	cout << "\n" << "----------------\n";
-	thirdPoint.showInfoofPoint();
+	thirdPoint.ShowInfoofPoint();
 }
+
+class Account
+{
+private:
+	string login;
+	string password;
+	float balance;
+	string pin;
+
+public:
+	Account()
+	{
+		login = "123456789";
+		password = "OPACZA";
+		balance = 0.00;
+		pin = "0000";
+	}
+
+	Account(string userLogin, string userPassword, float userBalance, string userPin)
+	{
+		login = userLogin;
+		password = userPassword;
+		balance = userBalance;
+		pin = userPin;
+	}
+
+	void InfoOfAccount()
+	{
+		cout << "Informacja o koncie: \n";
+
+		cout << "Login: " << login << " \n";
+		cout << "Has³o: " << password << " \n";
+		cout << "Saldo: " << balance << " \n";
+		cout << "PIN: " << pin << " \n";
+
+	}
+
+	bool CheckUser()
+	{
+		string loginFromUser;
+		string passwordFromUser;
+
+		cout << "Podaj login:\n";
+		cin >> loginFromUser;
+		cout << "Podaj haslo:\n";
+		cin >> passwordFromUser;
+
+		if (loginFromUser == login && passwordFromUser == password)
+			return true;
+		else
+			return false;
+	}
+
+	void AddMoney(float deposite)
+	{
+		balance += deposite;
+		cout << "Wplata na konto w rozmiarze " << deposite << " wykonano!\n";
+		cout << "Aktualny stan konta = " << balance << " \n";
+	}
+
+	string GetPin()
+	{
+		return pin;
+	}
+
+	void PayOut(float amout)
+	{
+		if (CheckPin()) {
+
+
+			balance -= amout;
+			cout << "Wyplata  o  " << amout << " zlotych udana!\n";
+			cout << "Aktualny stan konta = " << balance << " \n";
+		}
+	}
+
+	void Transfer(Account& secondUser, float transferAmount)
+	{
+		PayOut(transferAmount);
+		secondUser.AddMoney(transferAmount);
+
+		cout << "Przelew wykonano!\n";
+		cout << "Aktualny stan twego konta to =  " << balance << "\n";
+		cout << "Stan twego konta odbiorcy teraz  =  " << secondUser.balance << "\n";
+
+	}
+
+	bool CheckPin()
+	{
+		cout << "Podaj pin: \n";
+
+		string userPin;
+		if (userPin == pin)
+			return true;
+		else
+		{
+			cout << "Podales zly pin!\n";
+			return false;
+		}
+	}
+};
+
+
+void task2()
+{
+	cout << " Konto Bankowe $$$\n";
+
+	Account user1("1234", "4321", 100.00, "0000");
+	Account user2;
+
+	if (user1.CheckUser())
+		user1.InfoOfAccount();
+	else
+		cout << "Zle haslo lub login!\n";
+
+
+	user1.AddMoney(-15.5);
+
+	user1.PayOut(100000.0);
+
+	user1.InfoOfAccount();
+	user2.InfoOfAccount();
+
+	user1.Transfer(user2, -20);
+
+	user1.InfoOfAccount();
+	user2.InfoOfAccount();
+
+}
+
 
 int main()
 {
 	setlocale(LC_CTYPE, "polish");
-	task1();
-	
+	//task1();
+	task2();
 
 
 }
