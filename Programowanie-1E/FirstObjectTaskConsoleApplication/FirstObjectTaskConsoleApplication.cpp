@@ -25,6 +25,15 @@ Zdefiniuj klase opisuj¹ce konto bankowe. Mo¿liwoœci klasy:
 Napisz program który zaprezentuje mo¿liwoœci obiektu na podstawie tej klasy.
 */
 
+
+/*Zdefiniuj klase opisuj¹c¹ prostok¹t.Mo¿liwoœci klasy :
+* konstruktory
+* metoda która zwórci obwód prostok¹ta
+* metoda która pole prostok¹ta
+* metodê która poka¿e informacje o prostok¹cie.
+
+Napisz program który zaprezentuje mo¿liwoœci obiektu na podstawie tej klasy.*/
+
 class Point
 {
 private:
@@ -163,9 +172,13 @@ public:
 
 	void AddMoney(float deposite)
 	{
-		balance += deposite;
-		cout << "Wplata na konto w rozmiarze " << deposite << " wykonano!\n";
-		cout << "Aktualny stan konta = " << balance << " \n";
+		if (deposite > 0)
+		{
+			balance += deposite;
+			cout << "Wplata na konto w rozmiarze " << deposite << " wykonano!\n";
+			cout << "Aktualny stan konta = " << balance << " \n";
+		}
+		else cout << "Podales nie prawidlowa wartosc! nie mozna wykonac polecenia!\n";
 	}
 
 	string GetPin()
@@ -176,11 +189,20 @@ public:
 	void PayOut(float amout)
 	{
 		if (CheckPin()) {
-
-
-			balance -= amout;
-			cout << "Wyplata  o  " << amout << " zlotych udana!\n";
-			cout << "Aktualny stan konta = " << balance << " \n";
+			if (balance >= amout)
+			{
+				if (amout > 0)
+				{
+					balance -= amout;
+					cout << "Wyplata  o  " << amout << " zlotych udana!\n";
+					cout << "Aktualny stan konta = " << balance << " \n";
+				}
+				else cout << " Podana byla wartosc ujemna!\n";
+			}
+			else {
+				std::cout << "Nie mozesz wykonsc polecenie! Za ma³o pieniedzy na rachunku!\n";
+				return;
+			}
 		}
 	}
 
@@ -200,6 +222,7 @@ public:
 		cout << "Podaj pin: \n";
 
 		string userPin;
+		cin >> userPin;
 		if (userPin == pin)
 			return true;
 		else
@@ -209,8 +232,6 @@ public:
 		}
 	}
 };
-
-
 void task2()
 {
 	cout << " Konto Bankowe $$$\n";
@@ -224,26 +245,101 @@ void task2()
 		cout << "Zle haslo lub login!\n";
 
 
-	user1.AddMoney(-15.5);
+	user1.AddMoney(15.5);
 
-	user1.PayOut(100000.0);
+	user1.PayOut(100.0);
 
-	user1.InfoOfAccount();
-	user2.InfoOfAccount();
+	//user1.InfoOfAccount();
+	//user2.InfoOfAccount();
 
-	user1.Transfer(user2, -20);
+	user1.Transfer(user2, 20);
 
 	user1.InfoOfAccount();
 	user2.InfoOfAccount();
 
 }
 
+class Rectangle
+{
+private:
+	float sideA;
+	float sideB;
+	string name;
+public:
+	Rectangle()
+	{
+		sideA = 1;
+		sideB = 1;
+		name = "prostok¹cik2DPROfMAX256gb";
+	}
+
+	Rectangle(float aSied, float bSied, string userName)
+	{
+		sideA = aSied;
+		sideB = bSied;
+		name = userName;
+	}
+
+	void userCreatRectangle(float userA,float userB,string nameUser)
+	{
+		sideA = userA;
+		sideB = userB;
+		name = nameUser;
+	}
+
+	void showAllInfo()
+	{
+		cout << "Informacja o prostakacie:\n";
+		cout << "Nazwa: " << name << "\n";
+		cout << "Bok A: " << sideA << "\n";
+		cout << "Bok B: " << sideB << "\n";
+		cout<< "Obwód wynosi : "<< circuitOfRectangle()<< "\n";
+		cout << "Pole : " << areaOfRectangle() << "\n";
+
+
+	}
+
+	float circuitOfRectangle()
+	{
+		return (sideA + sideB) * 2;
+
+	}
+	float areaOfRectangle()
+	{
+		return sideA * sideB;
+
+	}
+
+};
+
+void task3()
+{
+	Rectangle firstRectangle;
+	Rectangle secondRectangle(12, 10, "autobus");
+	float userSideA, userSideB;
+	string userName;
+	do
+	{
+		cout << "Podawaj liczbe dodatnie!!!\n";
+		cout << "Podaj bok a i bok b: \n";
+		cin >> userSideA;
+		cin >> userSideB;
+	} while (userSideA <= 0 && userSideB <= 0);
+
+	cout << "Nazwij prostokat: \n";
+	cin >> userName; 
+	firstRectangle.userCreatRectangle(userSideA, userSideB, userName);
+
+	firstRectangle.showAllInfo();
+
+
+}
 
 int main()
 {
 	setlocale(LC_CTYPE, "polish");
 	//task1();
-	task2();
-
+	//task2();
+	task3();
 
 }
