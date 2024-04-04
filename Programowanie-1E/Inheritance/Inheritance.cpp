@@ -4,15 +4,19 @@ using namespace std;
 class C
 {
 private:
-protected: 
+protected:
 	int number;
+	string name; 
 
-public: 
-	
+public:
+	int GetNumber()
+	{
+		return number;
+	}
 };
 
 
-class A :  public C{
+class A : public C {
 private:
 	//int number;
 	bool isEmpty;
@@ -22,24 +26,24 @@ public:
 	{
 		number = 5;
 		isEmpty = false;
+		name = "A";
 	}
 
-	int GetNumber()
+	/*int GetNumber()
 	{
 		return number;
-
-	}
+	}*/
 
 	void ShowInfo()
 	{
-		cout << "Informacja o objekcie A: \n";
+		cout << "Informacja o objekcie " << name << " : \n";
 		cout << "Number " << number << "\n";
 		cout << "bool  " << isEmpty << "\n";
 	}
 };
 
 
-class B : public C  {
+class B : public C {
 private:
 	//int number;
 	string text;
@@ -47,19 +51,20 @@ public:
 
 	B()
 	{
+		name = "B";
 		number = 5;
 		text = "ADNSJDNJ";
 	}
 
-	int GetNumber()
+	/*int GetNumber()
 	{
 		return number;
 
-	}
+	}*/
 
 	void ShowInfo()
 	{
-		cout << "Informacja o objekcie A: \n";
+		cout << "Informacja o objekcie " << name << ": \n";
 		cout << "Number " << number << "\n";
 		cout << "Text" << text << "\n";
 	}
@@ -75,7 +80,8 @@ int main()
 	B b;
 	b.ShowInfo();
 
-
+	C c;
+	c.GetNumber();
 
 }
 
