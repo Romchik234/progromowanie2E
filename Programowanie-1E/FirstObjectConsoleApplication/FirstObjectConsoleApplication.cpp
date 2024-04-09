@@ -75,7 +75,7 @@ int main()
 	person secondPerson;
 
 	//secondPerson.name = "Bartek";
-	//secondPerson.surname = "Nawak";
+	//secondPerson.surname = "Star";
 	//secondPerson.age = 56;
 	secondPerson.showInfo();
 

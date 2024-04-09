@@ -13,7 +13,19 @@ public:
 	{
 		return number;
 	}
-};
+	
+	C()
+	{
+		number = 5;
+		name = "C";
+	}
+
+	C(string n)
+	{
+		number = 5; 
+		name = n; 
+	}
+}; 
 
 
 class A : public C {
@@ -22,11 +34,11 @@ private:
 	bool isEmpty;
 public:
 
-	A()
+	A() : C("A")
 	{
-		number = 5;
+		/*number = 5;*/
 		isEmpty = false;
-		name = "A";
+		/*name = "A";*/
 	}
 
 	/*int GetNumber()
@@ -49,10 +61,10 @@ private:
 	string text;
 public:
 
-	B()
+	B() : C("B")
 	{
-		name = "B";
-		number = 5;
+		/*name = "B";*/
+		/*number = 5;*/
 		text = "ADNSJDNJ";
 	}
 
