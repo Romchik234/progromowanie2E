@@ -63,6 +63,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Dzidziczenie", "02.Dzidz
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Inheritance", "Inheritance\Inheritance.vcxproj", "{E4EA8849-9B7A-4ED8-B23A-C4FC7634632A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GeometryConsoleApplication", "GeometryConsoleApplication\GeometryConsoleApplication.vcxproj", "{1109ACFB-24F4-4E4E-BAE9-C970D5CFF7AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -199,6 +201,14 @@ Global
 		{E4EA8849-9B7A-4ED8-B23A-C4FC7634632A}.Release|x64.Build.0 = Release|x64
 		{E4EA8849-9B7A-4ED8-B23A-C4FC7634632A}.Release|x86.ActiveCfg = Release|Win32
 		{E4EA8849-9B7A-4ED8-B23A-C4FC7634632A}.Release|x86.Build.0 = Release|Win32
+		{1109ACFB-24F4-4E4E-BAE9-C970D5CFF7AE}.Debug|x64.ActiveCfg = Debug|x64
+		{1109ACFB-24F4-4E4E-BAE9-C970D5CFF7AE}.Debug|x64.Build.0 = Debug|x64
+		{1109ACFB-24F4-4E4E-BAE9-C970D5CFF7AE}.Debug|x86.ActiveCfg = Debug|Win32
+		{1109ACFB-24F4-4E4E-BAE9-C970D5CFF7AE}.Debug|x86.Build.0 = Debug|Win32
+		{1109ACFB-24F4-4E4E-BAE9-C970D5CFF7AE}.Release|x64.ActiveCfg = Release|x64
+		{1109ACFB-24F4-4E4E-BAE9-C970D5CFF7AE}.Release|x64.Build.0 = Release|x64
+		{1109ACFB-24F4-4E4E-BAE9-C970D5CFF7AE}.Release|x86.ActiveCfg = Release|Win32
+		{1109ACFB-24F4-4E4E-BAE9-C970D5CFF7AE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -232,6 +242,7 @@ Global
 		{226D696A-160F-44B7-AD89-AE5A3C9E143F} = {6B0A4D91-9556-44A0-8B55-F6401175CA5F}
 		{4B236005-F7F1-4087-8463-39DD8ACD10D9} = {C4055C1A-8CA6-446D-849C-A478F14BEDFB}
 		{E4EA8849-9B7A-4ED8-B23A-C4FC7634632A} = {4B236005-F7F1-4087-8463-39DD8ACD10D9}
+		{1109ACFB-24F4-4E4E-BAE9-C970D5CFF7AE} = {4B236005-F7F1-4087-8463-39DD8ACD10D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C873A4C2-92CA-4618-BC5D-6BE660464384}
