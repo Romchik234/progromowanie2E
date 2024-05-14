@@ -143,7 +143,7 @@ public:
 int main()
 {
 	srand(time(NULL));
-	// zadanie1();
+	/// zadanie1();
 	zadanie2();
 
 
