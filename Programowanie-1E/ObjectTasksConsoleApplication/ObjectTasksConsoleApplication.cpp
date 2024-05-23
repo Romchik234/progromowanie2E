@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdio>
+
 using namespace std;
 
 /*zadanie 1*/
@@ -37,7 +39,7 @@ void zadanie1()
 
 };
 
-//zadanie2
+//zadanie2 --------------------------------------------
 class Sumator {
 private:
 	const int SIZE = 10;
@@ -117,34 +119,92 @@ void zadanie2()
 }
 
 
-//zadanie3
+//zadanie3----------------------------------------------------
 
 class Osoba {
-private:
+protected:
 	string name;
 	string nazwisko;
 	int age;
 public:
-	Osoba() {
-		name = "Pawel";
-		nazwisko = "Waldon";
-		age = 18;
+	Osoba()
+	{
+		name = "brakImie";
+		nazwisko = "brakNazwisko";
+		age = 0;
+	}
+	Osoba(string a, string b, int c)
+	{
+		name = a; 
+		nazwisko = b;
+		age = c; 
 	}
 
 	void ShowInfo() {
-		cout << name;
-		cout << nazwisko;
-		cout << age;
+		cout << name<< "\n";
+		cout << nazwisko << "\n";
+		cout << age<< "\n";
+	}
+
+
+};
+
+class Ksiazka: public Osoba{
+private: 
+	string tytul; 
+	Osoba autor;
+	string dataWydania; 
+public:
+	Ksiazka(string a , string b ,string c , int d ,string e ): Osoba(b ,c ,d )
+	{
+		tytul = a; 
+		dataWydania = e; 
+	}
+
+	void ShowInfoOfKsizka() {
+		cout << tytul << "\n";
+		ShowInfo(); 
+		/*cout << name<< "\n";
+		cout << nazwisko<< "\n";
+		cout << age<< "\n";*/
+		cout << dataWydania;
 	}
 };
 
+void zadani3() {
+	Osoba a("Imie", "Nazwisko", 20);
+	Ksiazka b("Skibidi" , "Imie!" , "Nazwisko1", 999 , "01-01-999");
 
+	a.ShowInfo(); 
+	b.ShowInfoOfKsizka();
+};
+
+//zadanie 4 ---------------------------------------------------
+
+void zadanie4()
+{
+
+	time_t czas_t; 
+	time(& czas_t); 
+	printf("Czas lokalny: %s\n", ctime(&czas_t)); // TO NIE DZIALA 
+};
+
+class Date {
+private:
+	 
+	short day; 
+	short month; 
+	short year; 
+
+
+};
 
 int main()
 {
 	srand(time(NULL));
 	/// zadanie1();
-	zadanie2();
-
+	//zadanie2();
+	//zadani3(); 
+	zadanie4(); 
 
 }
