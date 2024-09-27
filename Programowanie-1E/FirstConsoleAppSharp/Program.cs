@@ -33,9 +33,20 @@ void passingParameters_v2(ref int p) //przekazywanie przez referencje (oryginal 
     Console.WriteLine($"passingParameters_v2 p = {p}");
 }
 
-void passingParameters_v3(out int p) //przekazywanie przez 
+void passingParameters_v3(out int p) //przekazywanie przez referencje (bez obowiazku przepisanej wartosci dla zmiennej)
 {
     p = 9; 
     p++;
     Console.WriteLine($"passingParameters_v3 p = {p}");
+}
+
+string strNumber = "125";
+//strNumber = Console.ReadLine();
+int firstNumber = 0;
+
+//firstNumber = int.Parse(strNumber);
+
+if (int.TryParse(strNumber,out firstNumber) == false)
+{
+
 }
