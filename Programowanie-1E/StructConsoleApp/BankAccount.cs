@@ -8,9 +8,9 @@ namespace StructConsoleApp
 {
     struct BankAccount
     {
-        double balance;
-        string PIN;
-        string owner;
-        string currency;
+        public double balance;
+        public string PIN;
+        public string owner;
+        public string currency;
     }
 }
