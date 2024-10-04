@@ -24,6 +24,11 @@ showInfo(firstAccount);
 withdrawFromAccount(ref secondAccount, 20);
 showInfo(secondAccount);
 
+
+transferBetweenAccount(ref firstAccount, ref secondAccount, 5);
+showInfo(firstAccount);
+showInfo(secondAccount);
+
 void showInfo(BankAccount account)
 {
     Console.WriteLine("informacja o konice: "); 
@@ -38,9 +43,20 @@ void depositeToAccount( ref BankAccount account, double amount)
     account.balance += amount; 
 }
 
-void withdrawFromAccount(ref BankAccount account, double amount)
+bool withdrawFromAccount(ref BankAccount account, double amount)
 {
     if (amount >= 0
         && amount <= account.balance)
-    account.balance-= amount;
+    {
+        account.balance-= amount;
+        return true;
+    }
+    return false; 
+ }
+void transferBetweenAccount( ref BankAccount sourceAccount, ref BankAccount targerAccount, double amount)
+{
+   // if (amount < sourceAccount.balance) { }     // alternatywa 
+
+    if (withdrawFromAccount(ref sourceAccount, amount))
+        depositeToAccount(ref targerAccount, amount); 
 }
