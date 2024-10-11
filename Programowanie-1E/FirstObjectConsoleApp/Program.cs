@@ -15,48 +15,16 @@ secondAccount.PIN = "0112";
 secondAccount.currency = "zl";
 secondAccount.owner = "Joy Baiden";
 
-showInfo(firstAccount);
-showInfo(secondAccount);
+firstAccount.ShowInfo();
+secondAccount.ShowInfo();
 
-depositeToAccount(ref firstAccount, 15);
-showInfo(firstAccount);
+firstAccount.DepositeToAccount(15);
+firstAccount.ShowInfo();
 
-withdrawFromAccount(ref secondAccount, 20);
-showInfo(secondAccount);
+secondAccount.WithdrawFromAccount(20);
+secondAccount.ShowInfo();
 
+firstAccount.TransferBetweenAccount( ref secondAccount, 5);
+firstAccount.ShowInfo();
+secondAccount.ShowInfo();
 
-transferBetweenAccount(ref firstAccount, ref secondAccount, 5);
-showInfo(firstAccount);
-showInfo(secondAccount);
-
-void showInfo(BankAccount account)
-{
-    Console.WriteLine("informacja o konice: ");
-    Console.WriteLine($"Nawa uzytkowniak {account.owner}");
-    Console.WriteLine($"Saldo  {account.balance} {account.currency}");
-}
-
-
-void depositeToAccount(ref BankAccount account, double amount)
-{
-    if (amount >= 0)
-        account.balance += amount;
-}
-
-bool withdrawFromAccount(ref BankAccount account, double amount)
-{
-    if (amount >= 0
-        && amount <= account.balance)
-    {
-        account.balance -= amount;
-        return true;
-    }
-    return false;
-}
-void transferBetweenAccount(ref BankAccount sourceAccount, ref BankAccount targerAccount, double amount)
-{
-    // if (amount < sourceAccount.balance) { }     // alternatywa 
-
-    if (withdrawFromAccount(ref sourceAccount, amount))
-        depositeToAccount(ref targerAccount, amount);
-}
