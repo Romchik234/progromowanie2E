@@ -127,7 +127,7 @@ Console.WriteLine(oreoShakeWithTwoCookiesPlease);
 
 //Zadanie 16: Znajdź wszystkie unikalne litery używane w nazwach zadań zakończonych
 Console.WriteLine("Zadanie 16");
-var opaCha = tasks.Where(t => t.IsCompleted == true).SelectMany(c => c.Name.ToLower().Where(c => char.IsLetter(c))).Distinct();
+var opaCha = tasks.Where(t => t.IsCompleted == true).SelectMany(c => c.Name.ToLower().Where(c => char.IsLetter(c))).Distinct(); 
 foreach (var task in opaCha)
 {
     Console.WriteLine(task);
