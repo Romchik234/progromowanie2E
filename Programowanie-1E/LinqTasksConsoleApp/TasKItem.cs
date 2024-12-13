@@ -6,18 +6,11 @@ using System.Threading.Tasks;
 
 namespace LinqTasksConsoleApp
 {
-    internal class TaskItem
+    internal class TaskItem(int id, string name, bool isCompleted)
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public bool IsCompleted { get; set; }
-
-        public TaskItem(int id, string name, bool isCompleted)
-        {
-            Id = id;
-            Name = name;
-            IsCompleted = isCompleted;
-        }
+        public int Id { get; set; } = id;
+        public string Name { get; set; } = name;
+        public bool IsCompleted { get; set; } = isCompleted;
 
         public override string ToString()
         {

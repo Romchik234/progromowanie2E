@@ -4,11 +4,11 @@ using LinqTasksConsoleApp;
 
 var tasks = new List<TaskItem>
 {
-    new TaskItem(1, "Buy groceries", true),
-    new TaskItem(2, "Clean the house", false),
-    new TaskItem(3, "Pay bills", true),
-    new TaskItem(4, "Study LINQ", false),
-    new TaskItem(5, "Exercise", true)
+    new(1, "Buy groceries", true),
+    new(2, "Clean the house", false),
+    new(3, "Pay bills", true),
+    new(4, "Study LINQ", false),
+    new(5, "Exercise", true)
 };
 
 Console.WriteLine("Wszystkie elementy kolekcji: ");
@@ -105,12 +105,30 @@ foreach (var item in largeColaWithFries)
     Console.WriteLine(item.Count);
 }
 //Zadanie 13: Utwórz listę zakończonych zadań z ich numeracją oraz długością nazw
-
+Console.WriteLine("Zadanie 13");
+var lapuchainaMexicoAvokado = tasks.Where(t => t.IsCompleted == true).Select((g, index) => new{index = index + 1, Lenght = g.Name.Length, Item = g.IsCompleted});
+foreach (var task in lapuchainaMexicoAvokado)
+{
+    Console.WriteLine($"{task.index} :");
+    Console.WriteLine($"{task.Lenght}  {task.Item}");
+}
 //Zadanie 14: Zadania posortowane według stanu zakończenia, a następnie alfabetycznie według nazw
+Console.WriteLine("Zadanie 14");
+var fiveNightsWithErrors = tasks.OrderBy(t => t.IsCompleted).ThenBy(t => t.Name); 
+foreach (var task in fiveNightsWithErrors)
+{
+    Console.WriteLine(task);
+}
 
 //Zadanie 15: Sprawdź, czy w nazwach wszystkich zadań są co najmniej 2 różne samogłoski
 Console.WriteLine("Zadanie 15 ");
 bool oreoShakeWithTwoCookiesPlease = tasks.All(t => t.Name.ToLower().Where(c => "aeoiyu".Contains(c)).Distinct().Count() >= 2);
-Console.WriteLine(oreoShakeWithTwoCookiesPlease); 
+Console.WriteLine(oreoShakeWithTwoCookiesPlease);
 
 //Zadanie 16: Znajdź wszystkie unikalne litery używane w nazwach zadań zakończonych
+Console.WriteLine("Zadanie 16");
+var opaCha = tasks.Where(t => t.IsCompleted == true).SelectMany(c => c.Name.ToLower().Where(c => char.IsLetter(c))).Distinct();
+foreach (var task in opaCha)
+{
+    Console.WriteLine(task);
+}
