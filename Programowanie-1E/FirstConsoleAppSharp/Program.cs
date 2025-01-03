@@ -48,5 +48,8 @@ int firstNumber = 0;
 
 if (int.TryParse(strNumber,out firstNumber) == false)
 {
-
+    Console.WriteLine(firstNumber);
+    Console.WriteLine(strNumber);
 }
+Console.WriteLine(firstNumber);
+Console.WriteLine(strNumber);

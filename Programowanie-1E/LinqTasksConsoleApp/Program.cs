@@ -130,5 +130,5 @@ Console.WriteLine("Zadanie 16");
 var opaCha = tasks.Where(t => t.IsCompleted == true).SelectMany(c => c.Name.ToLower().Where(c => char.IsLetter(c))).Distinct(); 
 foreach (var task in opaCha)
 {
-    Console.WriteLine(task);
+    Console.Write($"{task} , ");
 }
