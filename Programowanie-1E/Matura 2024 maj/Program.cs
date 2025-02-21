@@ -1,4 +1,6 @@
-﻿using System.Reflection.Metadata;
+﻿using System.Diagnostics.Metrics;
+using System.Reflection;
+using System.Reflection.Metadata;
 
 StreamReader document = new("skrot_przyklad.txt");
 string? numberFromFile;
@@ -10,7 +12,7 @@ while ((numberFromFile = document.ReadLine()) != null)
 document.Close();
 
 //zadanie 3.1 - 3.2 
-
+/*
 int n = 0;
 int m = 0;
 int i = 1;
@@ -57,19 +59,85 @@ plikZodpowiea.Close();
 
 //zadanie 3.3
 
-StreamReader document2 = new("skrot2_przyklad.txt"); 
+StreamReader document2 = new("skrot2_przyklad.txt");
 List<string> numbersFromDocument2 = new();
 string? numberFromDocument2;
-while((numberFromDocument2 = document2.ReadLine()) != null)
+while ((numberFromDocument2 = document2.ReadLine()) != null)
 {
     numbersFromDocument2.Add(numberFromDocument2);
-    Console.WriteLine(numberFromDocument2);
 }
 document2.Close();
 
+int n = 0;
+
+int m = 0; // nie parzysty skrót 
+int i = 1;
+
+int notEvenShort(int number)
+{
+    m = 0;
+    i = 1;
+
+    while (number > 0)
+    {
+        int rest = number % 10;
+
+        if ((rest & 1) != 0)
+        {
+            m += rest * i;
+            i *= 10;
+        }
+
+        number = number / 10;
+    }
+    return m;
+}
+
+int nwd(int firstN, int secondN)
+{
+    int greater;
+    int smaller;
+    int secondSmaller;
+
+
+    if (firstN == 0)
+        return secondN;
+
+    if (secondN == 0)
+        return firstN;
+
+    if (firstN > secondN)
+    {
+        greater = firstN;
+        smaller = secondN;
+
+        secondSmaller = secondN;
+    }
+    else
+    {
+        greater = secondN;
+        smaller = firstN;
+
+        secondSmaller = firstN;
+    }
+
+    while (greater % smaller != 0 || secondSmaller % smaller != 0)
+    {
+        smaller--;
+    }
+    return smaller;
+
+}
+
 foreach (var number in numbersFromDocument2)
 {
-    
+    n = int.Parse(number);
+    m = notEvenShort(n);
+    int numberFromNwd = nwd(n, m);
+    if (numberFromNwd == 7)
+    {
+        Console.WriteLine(n);
+    }
 
 }
 
