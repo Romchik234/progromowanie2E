@@ -10,9 +10,9 @@ while ((numberFromFile = document.ReadLine()) != null)
     numbersFromFile.Add(numberFromFile);
 }
 document.Close();
-
-//zadanie 3.1 - 3.2 
 /*
+//zadanie 3.1 - 3.2 
+
 int n = 0;
 int m = 0;
 int i = 1;
@@ -129,11 +129,30 @@ int nwd(int firstN, int secondN)
 
 }
 
+
+int nwd2(int a, int b)
+{
+    if (b == 0)
+        return a;
+    return nwd2(b, a % b);
+}
+
+int nwd3(int a, int b) //24    21 
+{
+    while (b != 0 )
+    {
+        int tmp = a;
+        a = b;
+        b = tmp % b;
+    }
+    return a;
+}
+
 foreach (var number in numbersFromDocument2)
 {
     n = int.Parse(number);
     m = notEvenShort(n);
-    int numberFromNwd = nwd(n, m);
+    int numberFromNwd = nwd3(n, m);
     if (numberFromNwd == 7)
     {
         Console.WriteLine(n);
