@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventVsBindingMauiApp.MainPage"
+             x:Name="thisPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Slider 
+                Minimum="0" 
+                Maximum="360"
+                MinimumTrackColor="Aqua"
+                MaximumTrackColor="Brown"
+                ThumbColor="Pink"
+                x:Name="sliderFrom"
+                ValueChanged="sliderFrom_ValueChanged"/>
+            <Label
+                Text="OPA"
+                HorizontalOptions="Center"
+                Margin="0,25"
+                Rotation="90"
+                x:Name="labelRotation"/>
+
+            <Label Text="{Binding Source={x:Reference sliderFrom},Path=Value}"/>
+
+            <Label BindingContext="{x:Reference sliderFrom}"
+                   Text="{Binding Value , StringFormat='Wartosc slajdera to: {0}'}"
+                   FontSize="{Binding Value}"/>
+
+            <Label Text="podaj wartość:"/>
+            <Entry Text="{Binding Message ,Source={x:Reference thisPage}}"/>
+            <Button Text="Wykomaj"
+                    Clicked="Button_Clicked"/>
+            <Label Text="{Binding  ReturnMessage,Source={x:Reference thisPage}}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
