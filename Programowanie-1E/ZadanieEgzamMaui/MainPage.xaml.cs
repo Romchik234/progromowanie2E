@@ -17,7 +17,7 @@
         {
             get { return result; }
             set { result = value;
-                OnPropertyChanged();
+                OnPropertyChanged(); 
             }
         }
 
