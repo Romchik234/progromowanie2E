@@ -16,10 +16,10 @@
                 TextColor="white"/>
 
             <Label
-                Text="Podaj e-mail:"/>
+                Text="E-mail:"/>
             <Entry Text="{Binding Email}"/>
 
-            <Label Text="Podaj hasło:"/>
+            <Label Text="Hasło:"/>
             <Entry IsPassword="True"
                    Text="{Binding Password}"/>
 
@@ -30,10 +30,11 @@
             <Button
                 Text="Zatwierdź"
                 WidthRequest="150"
-                Clicked="Button_Clicked"/>
+                Clicked="Button_Clicked"
+                BackgroundColor="MediumPurple"/>
             
             <Label HorizontalOptions="Center"
-                   TextColor="Grey"
+                   TextColor="Black"
                    Text="{Binding Result}"/>
         </VerticalStackLayout>
     </ScrollView>

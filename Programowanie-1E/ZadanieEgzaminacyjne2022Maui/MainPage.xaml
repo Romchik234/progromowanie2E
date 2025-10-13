@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZadanieEgzaminacyjne2022Maui.MainPage"
+             x:Name="thisPage">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="Domek w górach"
+                  TextColor="DimGrey"
+                  FontSize="30"/>
+            <Image Source="obraz.jpg"/>
+
+        <HorizontalStackLayout BackgroundColor="Teal">
+                <Button BackgroundColor="Teal" Text="Polub" CornerRadius="0" Clicked="Button_Clicked"/>
+                <Button BackgroundColor="Teal" Text="Usuń" CornerRadius="0"/>
+                <Button BackgroundColor="Teal" Text="Zapisz" CornerRadius="0"/>
+            </HorizontalStackLayout>
+            <Label Text="{Binding Counter, Source={x:Reference thisPage}, StringFormat='{0} polubień'}" HorizontalOptions="End"/>
+            <Border Scale="1"/>
+            <Label Text="Opis" TextColor="Grey"/>
+            <Label Text="Odwiedź komfortowy donek w Sudetach, blisko do szlaków turystycznuch" TextColor="Grey"/>
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
