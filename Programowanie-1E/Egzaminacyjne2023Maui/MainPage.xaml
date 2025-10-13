@@ -14,7 +14,7 @@
                     <Grid RowDefinitions="auto,auto,auto"
                           ColumnDefinitions="auto,*">
                         <Label Text="Imię"/>
-                        <Entry Grid.Column="1" />
+                        <Entry Grid.Column="1"/>
                         <Label Text="Nazwisko" Grid.Row="1"/>
                         <Entry Grid.Column="1" Grid.Row="1"/>
                         <Label Text="Stanowisko" Grid.Row="2"/>
