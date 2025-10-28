@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EgzaminGraWKosci.MainPage"
+             x:Name="thisPage"
+             BindingContext="{x:Reference thisPage}"
+             xmlns:coverters="clr-namespace:EgzaminGraWKosci.Converter">
+    
+    <ContentPage.Resources>
+        <coverters:FromNumberToString x:Key="FromNumberToString"/>
+    </ContentPage.Resources>
+    
+    <ScrollView Background="Beige">
+        <VerticalStackLayout>
+            <Label
+                Text="Gra w kości. Autor autor "
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Button Text="Rzuć kościami"/>
+
+            <FlexLayout
+                Wrap="Wrap"
+                BindableLayout.ItemsSource="{Binding ResultOfThrows}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Converter={x:StaticResource FromNumberToString}}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>                
+            </FlexLayout>
+            
+            
+            <Label Text="Wynik tego losowania:"/>
+            <Label Text="Wynik Gry: "/>
+            <Button Text="Resetuj wynik"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

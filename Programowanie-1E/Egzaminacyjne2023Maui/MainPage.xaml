@@ -4,33 +4,33 @@
              x:Class="Egzaminacyjne2023Maui.MainPage">
 
     <ScrollView BackgroundColor="LightSteelBlue">
-        <StackLayout Margin="10" >
+        <StackLayout Margin="40">
             <Grid RowDefinitions="auto,auto" 
                   ColumnDefinitions="*, *">
 
                 <Label Text="Dane pracownika" ZIndex="1"  Margin="10,0,0,0"/>
-                <Border StrokeThickness="1" Stroke="White" Margin="0,10,0,0" Padding="10" StrokeShape="10">
+                <Border StrokeThickness="1" Stroke="White" Margin="0,10,20,0" Padding="10" StrokeShape="10">
 
-                    <Grid RowDefinitions="auto,auto,auto"
-                          ColumnDefinitions="auto,*">
+                    <Grid RowDefinitions="*,*,*"
+                          ColumnDefinitions="auto,*" Padding="30">
+
                         <Label Text="Imię"/>
                         <Entry Grid.Column="1"/>
                         <Label Text="Nazwisko" Grid.Row="1"/>
                         <Entry Grid.Column="1" Grid.Row="1"/>
                         <Label Text="Stanowisko" Grid.Row="2"/>
                         <Picker Grid.Column="1" Grid.Row="2"/>
-
                     </Grid>
                 </Border>
-                <Label Text="Generowanie hasła" Grid.Column="1" Grid.Row="0" Margin="10,0,0,0" ZIndex="1"/>
-                <Border  Stroke="White" Grid.Column="1" Grid.Row="0" Margin="0,10,0,0" Padding="10" StrokeShape="10">
-                    <StackLayout>
+                <Label Text="Generowanie hasła" Grid.Column="1" Grid.Row="0" Margin="30,0,0,0" ZIndex="1"/>
+                <Border  Stroke="White" Grid.Column="1" Grid.Row="0" Margin="20,10,0,0" Padding="10" StrokeShape="10">
+                    <StackLayout Margin="40" >
                     <Grid RowDefinitions="auto" ColumnDefinitions="auto,*">
                         <Label Text="Ile znkaów"  VerticalOptions="Center"/>
                             <Entry Grid.Column="1"/>
                         </Grid>
                         <StackLayout Orientation="Horizontal">
-                        <CheckBox />
+                        <CheckBox/>
                         <Label Text="Małe i wielkie litery" VerticalOptions="Center"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
@@ -45,7 +45,7 @@
                     </StackLayout>
                 </Border>
                 <Button  Text="Zatwierdź" BackgroundColor="SteelBlue" HorizontalOptions="Center" 
-                         Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" MinimumWidthRequest="200" MaximumHeightRequest="40" />
+                         Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" MinimumWidthRequest="200" MaximumHeightRequest="40"/>
             </Grid>
         </StackLayout>
     </ScrollView>

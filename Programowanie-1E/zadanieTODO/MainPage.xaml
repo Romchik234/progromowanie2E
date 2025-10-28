@@ -1,0 +1,39 @@
+﻿ <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zadanieTODO.MainPage"
+             x:Name="thisPage"
+             xmlns:converters="clr-namespace:zadanieTODO.Converters"
+             BindingContext="{x:Reference: thisPage}">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            BackgroundColor="Aqua">
+            <Border Stroke="BlueViolet">
+            <Label Text="Witamy w aplikacji TODO"
+                   Margin="10,10,10,40"
+                   />
+            </Border>
+
+            <CollectionView ItemsSource="{Binding ZadanieCollection}"
+                            SelectionMode="Multiple"
+                            SelectedItem="{Binding SelectedZadanie}"
+                            Header="Zadania:">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="5">
+                            <Label Text="Tytuł: "/>
+                            <Label Text="{Binding Title}"/>
+                            <Label Text="{Binding IsComplite}"
+                                   FontAttributes="Italic"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
