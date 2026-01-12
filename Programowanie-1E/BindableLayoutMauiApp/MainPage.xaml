@@ -27,21 +27,22 @@
             <Button Text="Dodaj zadanie"
                     Clicked="Button_Clicked" />
 
-            <Grid ColumnDefinitions="*,*"
+            <!--<Grid ColumnDefinitions="*,*"
                   RowDefinitions="*,*"
                   BindableLayout.ItemsSource="{Binding ToDoTasks}">
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal"
-                                     Grid.Column="{Binding Column}"
-                                     Grid.Row="{Binding Row}">
-                            <Label Text="{Binding Title}"
-                                   TextColor="{Binding IsComplited, Converter={x:StaticResource BoolToColorConverter}}" />
-                            <CheckBox IsChecked="{Binding IsComplited}" />
-                        </StackLayout>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
-            </Grid>
+
+                <bindablelayout.itemtemplate>
+                    <datatemplate>
+                        <stacklayout orientation="horizontal"
+                                     grid.column="{binding column}"
+                                     grid.row="{binding row}">
+                            <label text="{binding title}"
+                                   textcolor="{binding iscomplited, converter={x:staticresource booltocolorconverter}}" />
+                            <checkbox ischecked="{binding iscomplited}" />
+                        </stacklayout>
+                    </datatemplate>
+                </bindablelayout.itemtemplate>
+            </Grid>-->
         </StackLayout>
     </ScrollView>
 

@@ -15,7 +15,7 @@ namespace BindableLayoutMauiApp
             {
                 new ToDoTask(){Title = "Praca domowa", IsComplited = false, Column=0, Row =0},
                 new ToDoTask(){Title = "Wyjść z psem", IsComplited = true, Column = 1, Row = 1},
-                new ToDoTask(){Title = "Nauka na sprawdzian z matematyki", IsComplited = false, Column=1, Row = 0},
+                new ToDoTask(){Title = "Nauka na sprawdzian z matematyki", IsComplited = false, Column=1, Row = 0}
             };
             InitializeComponent();
         }

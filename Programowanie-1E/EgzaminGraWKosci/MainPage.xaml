@@ -13,7 +13,7 @@
     <ScrollView Background="Beige">
         <VerticalStackLayout>
             <Label
-                Text="Gra w kości. Autor autor "
+                Text="Gra w kości. "
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
