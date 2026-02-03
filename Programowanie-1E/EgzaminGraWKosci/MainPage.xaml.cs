@@ -9,10 +9,11 @@ namespace EgzaminGraWKosci
 
         public MainPage()
         {
+            Random randomNumber = new Random();  
             ResultOfThrows = new ObservableCollection<int>();
             for (int i = 0; i < 5; i++)
             {
-                ResultOfThrows.Add(0);
+                ResultOfThrows.Add(randomNumber.Next(1, 7));
             }
 
 

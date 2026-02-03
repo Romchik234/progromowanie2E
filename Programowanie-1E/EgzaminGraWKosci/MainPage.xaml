@@ -15,7 +15,8 @@
             <Label
                 Text="Gra w kości. "
                 Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+                SemanticProperties.HeadingLevel="Level1"
+                />
 
             <Button Text="Rzuć kościami"/>
 
