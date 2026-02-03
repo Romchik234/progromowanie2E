@@ -18,7 +18,7 @@
                 SemanticProperties.HeadingLevel="Level1"
                 />
 
-            <Button Text="Rzuć kościami"/>
+            <Button Text="Rzuć kościami" Clicked="Button_Clicked"/>
 
             <FlexLayout
                 Wrap="Wrap"
@@ -31,12 +31,12 @@
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>                
             </FlexLayout>
-            
-            
-            <Label Text="Wynik tego losowania:"/>
-            <Label Text="Wynik Gry: "/>
-            <Button Text="Resetuj wynik"/>
+
+
+            <Label Text="{Binding SumOfAll, StringFormat='Wynik wszystkich rzutów: {0}'}"/>
+            <Label Text="{Binding ResultOfCurrentThrow, StringFormat='Wynik rzutu: {0}'}"/>
+            <Button Text="Resetuj wynik" Clicked="Button_Clicked_1"/>
         </VerticalStackLayout>
     </ScrollView>
 
-</ContentPage>
+</ContentPage> 
