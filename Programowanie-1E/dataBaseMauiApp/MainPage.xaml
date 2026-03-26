@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="dataBaseMauiApp.MainPage">
+             x:Class="dataBaseMauiApp.MainPage"
+             x:Name="thisPage"
+             BindingContext="{x:Reference thisPage}">
 
     <ScrollView>
         <VerticalStackLayout
@@ -15,7 +17,7 @@
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
 
-            <CollectionView >
+            <CollectionView BindingContext="{Binding People}">
                 
             </CollectionView>
         </VerticalStackLayout>
