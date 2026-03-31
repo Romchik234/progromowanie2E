@@ -9,17 +9,35 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            
+
             <Button
                 x:Name="CounterBtn"
                 Text="Reload data base" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                SemanticProperties.Hint="Odswierz baze"
+                Clicked="Reloud"
                 HorizontalOptions="Fill" />
 
-            <CollectionView BindingContext="{Binding People}">
-                
+            <Label Text="Lista osób:" TextColor="Black" FontSize="35"/>
+            <CollectionView ItemsSource="{Binding People}" SelectionMode="Single" SelectedItem="{Binding Item}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Id}"/>
+                            <Label Text="{Binding Name, StringFormat=' | {0}'}"/>
+                            <Label Text="{Binding Surname, StringFormat=' | {0}'}"/>
+                            <Label Text="{Binding Age, StringFormat=' | {0}'}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
             </CollectionView>
+            <Label Text="Modyfikacja wiersza" FontSize="35"/>
+            <Label Text="imie:"/>
+            <Entry/>
+            <Label Text="Nazwisko:"/>
+            <Entry/>
+            <Label Text="Wiersz:"/>
+            <Entry/>
+            <Button Text="Aktualizacja danych"/>
         </VerticalStackLayout>
     </ScrollView>
 

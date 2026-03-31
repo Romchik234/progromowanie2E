@@ -6,27 +6,45 @@ namespace dataBaseMauiApp
 
     public partial class MainPage : ContentPage
     {
+
         PeopleRepository peopleRepository = new PeopleRepository();
+
         private List<Person> people;
 
         public List<Person> People
         {
             get { return people; }
-            set { people = peopleRepository.GetAllPeople(); }
+            set
+            {
+                people = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Person selectedItem;
+
+        public Person SelectedItem
+        {
+            get { return selectedItem; }
+            set
+            {
+                selectedItem = value;
+                OnPropertyChanged();
+            }
         }
 
 
         public MainPage()
         {
+
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        private void Reloud(object? sender, EventArgs e)
         {
-            List<Person> list = new List<Person>();
+            People = peopleRepository.GetAllPeople();
             
-
         }
-        
+
     }
 }
