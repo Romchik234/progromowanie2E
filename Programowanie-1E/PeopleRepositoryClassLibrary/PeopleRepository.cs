@@ -1,4 +1,5 @@
-ï»¿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using PeopleRepositoryClassLibrary.Dtos;
 using PeopleRepositoryClassLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,17 @@ namespace PeopleRepositoryClassLibrary
 {
 
     /*
-    * Pobierz osoby o wieku wiÃªkszym niÂ¿ 30 lat.
-    * Pobierz osoby, ktÃ³rych nazwisko zaczyna siÃª na â€Kâ€.
-    * ZnajdÅ¸ osoby z najmniejszym wiekiem.
-    * Policz, ile osÃ³b jest w tabeli.
-    * ZwrÃ³Ã¦ wszystkie unikalne imiona.
-    * ZmieÃ± nazwisko wszystkich osÃ³b o nazwisku â€Kowalskiâ€ na â€Kowalâ€.
+    * Pobierz osoby o wieku wiêkszym ni¿ 30 lat.
+    * Pobierz osoby, których nazwisko zaczyna siê na „K”.
+    * ZnajdŸ osoby z najmniejszym wiekiem.
+    * Policz, ile osób jest w tabeli.
+    * Zwróæ wszystkie unikalne imiona.
+    * Zmieñ nazwisko wszystkich osób o nazwisku „Kowalski” na „Kowal”.
     * Dodaj wszystkim osobom 1 rok (symulacja urodzin).
-    * UsuÃ± wszystkich, ktÃ³rzy majÂ¹ wiÃªcej niÂ¿ 80 lat.
-    *  ZnajdÅ¸ najstarszÂ¹ osobÃª i zmieÃ± jej nazwisko na â€Najstarszyâ€.
-    * UsuÃ± osoby mÂ³odsze niÂ¿ Å“rednia wieku.
-    * ZmieÃ± imiona na wersjÃª â€WIELKIMI LITERAMIâ€.
+    * Usuñ wszystkich, którzy maj¹ wiêcej ni¿ 80 lat.
+    *  ZnajdŸ najstarsz¹ osobê i zmieñ jej nazwisko na „Najstarszy”.
+    * Usuñ osoby m³odsze ni¿ œrednia wieku.
+    * Zmieñ imiona na wersjê „WIELKIMI LITERAMI”.
     
 
     */
@@ -48,14 +49,10 @@ namespace PeopleRepositoryClassLibrary
 
         //R- read
 
-
-        //AsNoTracking wylaczenie zwracanych objektow \\ zajmuje zasoby + moze byc ubezpieczeniem do zmian w bazie 
-
-
         /*
         select *
-        from people4e2026.people p 
-        left Join addresses a on a.Id = p.AddressId
+        from people4e2026.people p
+        left join addresses a on a.Id = p.AddressId
         order by name, surname;
         */
 
@@ -63,9 +60,20 @@ namespace PeopleRepositoryClassLibrary
         {
             return context.People
                 .AsNoTracking()
+                .Include(p=> p.Address)
+                .OrderBy(p => p.Name)
+                .ThenBy(p => p.Surname)
+                .ToList();
+        }
+
+        public List<PersonDto> GetAllPeopleDto()
+        {
+            return context.People
+                .AsNoTracking()
                 .Include(p => p.Address)
                 .OrderBy(p => p.Name)
                 .ThenBy(p => p.Surname)
+                .Select(p=> new PersonDto() {Id = p.Id, Name = p.Name, Surname = p.Surname, Age = p.Age, FullName = p.Name + " " + p.Surname })
                 .ToList();
         }
 
@@ -83,10 +91,20 @@ namespace PeopleRepositoryClassLibrary
             }
         }
 
-        public void UpdatePerson()
+        public void UpdatePerson(int id, string name, string surname, int age)
         {
+            Person? person = context.People.FirstOrDefault(p => p.Id == id);
 
+            if (person != null)
+            {
+                person.Name = name;
+                person.Surname = surname;
+                person.Age = age;
+
+                context.SaveChanges();
+            }
         }
+
         //D - delete
 
         public void DeletePerson(int id)
@@ -99,53 +117,6 @@ namespace PeopleRepositoryClassLibrary
 
                 context.SaveChanges();
             }
-
-        }
-
-        public List<Person> ageMore30()
-        {
-            return context.People.AsNoTracking().Where(p => p.Age > 30).ToList(); 
-
-        }
-
-        public List<Person> surnameKfirst()
-        {
-            return context.People.AsNoTracking().Where(p => p.Surname.StartsWith("K")).ToList();
-        }
-
-        public List<Person> osobyNajMniejWiek()
-        {
-            return context.People.AsNoTracking().OrderBy(p => p.Age).ToList();
-        }
-
-        public int countOfPeople()
-        {
-            return context.People.AsNoTracking().Count(); 
-        }
-
-        public List<string> uniqueNames()
-        {
-            return context.People.AsNoTracking().Select(p => p.Name).Distinct().ToList();
-        }
-
-        public void changeSurnameKowalskiTo(string newSurname)
-        {
-            foreach (var item in context.People.Where(p => p.Surname == "Kowalski"))//nie dziala 
-            {
-                item.Surname = newSurname; 
-            }
-            context.SaveChanges();
         }
     }
-
-    /*
-    * ZmieÃ± nazwisko wszystkich osÃ³b o nazwisku â€Kowalskiâ€ na â€Kowalâ€.
-    * Dodaj wszystkim osobom 1 rok (symulacja urodzin).
-    * UsuÃ± wszystkich, ktÃ³rzy majÂ¹ wiÃªcej niÂ¿ 80 lat.
-    *  ZnajdÅ¸ najstarszÂ¹ osobÃª i zmieÃ± jej nazwisko na â€Najstarszyâ€.
-    * UsuÃ± osoby mÂ³odsze niÂ¿ Å“rednia wieku.
-    * ZmieÃ± imiona na wersjÃª â€WIELKIMI LITERAMIâ€.
-    
-
-    */
 }
