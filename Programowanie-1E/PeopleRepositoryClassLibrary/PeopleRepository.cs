@@ -14,7 +14,7 @@ namespace PeopleRepositoryClassLibrary
     * Pobierz osoby o wieku wiêkszym ni¿ 30 lat.
     * Pobierz osoby, których nazwisko zaczyna siê na „K”.
     * ZnajdŸ osoby z najmniejszym wiekiem.  
-    * Policz, ile osób jest w tabeli.
+    * Policz, ile osób jest w tabeli. 
     * Zwróæ wszystkie unikalne imiona.
     * Zmieñ nazwisko wszystkich osób o nazwisku „Kowalski” na „Kowal”.
     * Dodaj wszystkim osobom 1 rok (symulacja urodzin).
