@@ -2,26 +2,32 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizMauiApp.MainPage"
-             xmlns:local="clr-namesapce:QuizMauiApp"
-             xmlns:converters="">
+             xmlns:local="clr-namespace:QuizMauiApp"
+             >
              
+    
     <ContentPage.BindingContext>
-        <local:MainVievModel />
+        <local:MainVievModelQuiz/>
     </ContentPage.BindingContext>
-        <ScrollView>
+    <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
 
             <Label Text="{Binding NumberOfQ}" HorizontalOptions="End"/>
-            <Label Text=" pytanie" FontSize="32" FontAttributes="Bold"/>
-            
-            <RadioButton GroupName="quiz" Content="Answer 1"/> 
-            <RadioButton GroupName="quiz" Content="Answer 2"/> 
-            <RadioButton GroupName="quiz" Content="Answer 3"/>
+            <Label Text="{Binding CurentQuestion.Text}" FontSize="32" FontAttributes="Bold"/>
+            <StackLayout BindableLayout.ItemsSource="{Binding CurentAnswers}"
+                         RadioButtonGroup.GroupName="answers"
+                         RadioButtonGroup.SelectedValue="{Binding SelectedAnswer}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton  Content="{Binding Text}"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Sprawdz" HorizontalOptions="Start" Margin="0,0,100,0"/>
-                <Button Text="Nastepne" HorizontalOptions="End" />
+                <Button Text="Nastepne" HorizontalOptions="End" Command="{Binding NextQuestion}" IsEnabled="{Binding ButtonEnabled}"/>
             </StackLayout>
             <Label Text=" ilosc prawidlowych odpowiedzi: "/>
         </VerticalStackLayout> 
