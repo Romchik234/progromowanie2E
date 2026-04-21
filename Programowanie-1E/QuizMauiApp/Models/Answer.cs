@@ -10,5 +10,14 @@ namespace QuizMauiApp.Models
     {
         public string Text { get; set; }
         public bool IsCorect { get; set; }
+
+        private string color;
+
+        public string Color
+        {
+            get { return color; }
+            set { color = value; OnPropertyChanged(); }
+        }
+
     }
 }

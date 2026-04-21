@@ -21,12 +21,12 @@ namespace QuizMauiApp
             set { curentQuestion = value; OnPropertyChanged(); }
         }
 
-        private bool buttonEnabled;
+        private bool isQuizInProgres;
 
-        public bool ButtonEnabled
+        public bool IsQuizInProgres
         {
-            get { return buttonEnabled; }
-            set { buttonEnabled = value; OnPropertyChanged(); }
+            get { return isQuizInProgres; }
+            set { isQuizInProgres = value; OnPropertyChanged(); }
         }
 
         private Answer? selectedAnswer;
@@ -34,8 +34,25 @@ namespace QuizMauiApp
         public Answer SelectedAnswer
         {
             get { return selectedAnswer; }
-            set { selectedAnswer = value; }
+            set { selectedAnswer = value; OnPropertyChanged(); }
         }
+
+        private int corectCounter;
+
+        public int CorectCounter
+        {
+            get { return corectCounter; }
+            set { corectCounter = value; OnPropertyChanged(); }
+        }
+
+        private bool isntAnswerd;
+
+        public bool IsntAnswerd
+        {
+            get { return isntAnswerd; }
+            set { isntAnswerd = value; OnPropertyChanged(); }
+        }
+
 
         public ObservableCollection<Answer> CurentAnswers { get; set; }
 
@@ -49,6 +66,7 @@ namespace QuizMauiApp
                         () =>
                         {
                             ChangeQuestion(curentQuestion.Id);
+                            IsntAnswerd = true;
                         }
                         );
                 return nextQuestion;
@@ -58,7 +76,33 @@ namespace QuizMauiApp
         private Command? checkAnswer = null;
         public Command CheckAnswer
         {
-           /* tu robisz dalej */
+            get
+            {
+                if (checkAnswer == null)
+                    checkAnswer = new Command(
+                        () =>
+                        {
+                            if (!isntAnswerd)
+                                return;
+
+                            IsntAnswerd = false;
+                            if (selectedAnswer != null)
+                            {
+                                SelectedAnswer.Color = "Red";
+
+                            }
+
+
+                            CurentAnswers.First(a => a.IsCorect).Color = "Green";
+                            if (selectedAnswer != null && selectedAnswer.IsCorect == true)
+                            {
+                                CorectCounter++;
+                            }
+                        }
+                        );
+                return checkAnswer;
+            }
+
         }
 
 
@@ -67,28 +111,32 @@ namespace QuizMauiApp
         {
             quizRepository = new QuizRepository();
             CurentAnswers = new ObservableCollection<Answer>();
+            CorectCounter = 0;
+            isntAnswerd = true;
             ChangeQuestion(0);
         }
 
         private void ChangeQuestion(int id)
         {
+
+
             CurentAnswers.Clear();
             QuestionDto questionDto = quizRepository.GetNextQuestion(id);
             if (questionDto != null)
             {
                 CurentQuestion = new Question { Id = questionDto.Id, Text = questionDto.QuestionText };
-                ButtonEnabled = true;
+                IsQuizInProgres = true;
                 List<AnswerDto> answerDtos = quizRepository.GetAnswers(CurentQuestion.Id);
                 foreach (AnswerDto answerDto in answerDtos)
                 {
-                    CurentAnswers.Add(new Answer { Text = answerDto.Text, IsCorect = answerDto.IsCorect });
+                    CurentAnswers.Add(new Answer { Text = answerDto.Text, IsCorect = answerDto.IsCorect, Color = "Black" });
                 }
 
             }
             else
             {
                 CurentQuestion = new Question { Text = "Koniec pytan" };
-                ButtonEnabled = false;
+                IsQuizInProgres = false;
             }
         }
     }

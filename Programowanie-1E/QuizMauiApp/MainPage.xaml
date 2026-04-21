@@ -14,22 +14,22 @@
             Padding="30,0"
             Spacing="25">
 
-            <Label Text="{Binding NumberOfQ}" HorizontalOptions="End"/>
+            <Label Text="{Binding NumberOfQ , StringFormat='Numer pytanie: {0} '}" HorizontalOptions="End"/>
             <Label Text="{Binding CurentQuestion.Text}" FontSize="32" FontAttributes="Bold"/>
             <StackLayout BindableLayout.ItemsSource="{Binding CurentAnswers}"
                          RadioButtonGroup.GroupName="answers"
-                         RadioButtonGroup.SelectedValue="{Binding SelectedAnswer}">
+                         RadioButtonGroup.SelectedValue="{Binding SelectedAnswer}" IsEnabled="{Binding IsntAnswerd}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <RadioButton  Content="{Binding Text}"/>
+                        <RadioButton  Content="{Binding Text}" Value="{Binding}" TextColor="{Binding Color}" />
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Button Text="Sprawdz" HorizontalOptions="Start" Margin="0,0,100,0"/>
-                <Button Text="Nastepne" HorizontalOptions="End" Command="{Binding NextQuestion}" IsEnabled="{Binding ButtonEnabled}"/>
+                <Button Text="Sprawdz" HorizontalOptions="Start" Margin="0,0,100,0" Command="{Binding CheckAnswer}"/>
+                <Button Text="Nastepne" HorizontalOptions="End" Command="{Binding NextQuestion}" IsEnabled="{Binding IsQuizInProgres}"/>
             </StackLayout>
-            <Label Text=" ilosc prawidlowych odpowiedzi: "/>
+            <Label Text="{Binding CorectCounter , StringFormat='ilosc poprawnych odpowiedzi {0}'}"/>
         </VerticalStackLayout> 
     </ScrollView>
 
