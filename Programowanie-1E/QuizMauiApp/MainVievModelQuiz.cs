@@ -12,7 +12,7 @@ namespace QuizMauiApp
 {
     internal class MainVievModelQuiz : BindableObject
     {
-
+        
         private Question? curentQuestion;
 
         public Question CurentQuestion
@@ -53,6 +53,15 @@ namespace QuizMauiApp
             set { isntAnswerd = value; OnPropertyChanged(); }
         }
 
+        private int numberOfQ;
+
+        public int NumberOfQ
+        {
+            get { return numberOfQ; }
+            set { numberOfQ = value; OnPropertyChanged(); }
+        }
+
+
 
         public ObservableCollection<Answer> CurentAnswers { get; set; }
 
@@ -67,6 +76,13 @@ namespace QuizMauiApp
                         {
                             ChangeQuestion(curentQuestion.Id);
                             IsntAnswerd = true;
+
+                            if (selectedAnswer != null && selectedAnswer.IsCorect == true)
+                            {
+                                CorectCounter++;
+                            }
+
+                            NumberOfQ++; 
                         }
                         );
                 return nextQuestion;
@@ -113,6 +129,7 @@ namespace QuizMauiApp
             CurentAnswers = new ObservableCollection<Answer>();
             CorectCounter = 0;
             isntAnswerd = true;
+            NumberOfQ = 1; 
             ChangeQuestion(0);
         }
 
@@ -121,7 +138,7 @@ namespace QuizMauiApp
 
 
             CurentAnswers.Clear();
-            QuestionDto questionDto = quizRepository.GetNextQuestion(id);
+            QuestionDto ?questionDto = quizRepository.GetNextQuestion(id);
             if (questionDto != null)
             {
                 CurentQuestion = new Question { Id = questionDto.Id, Text = questionDto.QuestionText };
@@ -137,6 +154,7 @@ namespace QuizMauiApp
             {
                 CurentQuestion = new Question { Text = "Koniec pytan" };
                 IsQuizInProgres = false;
+                NumberOfQ --;
             }
         }
     }
